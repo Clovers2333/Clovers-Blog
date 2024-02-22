@@ -59,11 +59,7 @@ validation:
     not_found: ignore
     absolute_links: ignore
     unrecognized_links: ignore
-
-extra_css:
-
-extra_javascript:
-
+    
 plugins:
   # - rss
   - search
