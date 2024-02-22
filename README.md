@@ -1,2 +1,2 @@
 # blog
-My own blog based on mkdocs
+My own blog based on mkdocs.

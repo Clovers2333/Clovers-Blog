@@ -77,6 +77,22 @@ plugins:
 not_in_nav: todo.md
 
 nav:
-  - Home:
-    - index.md
-    
+  - Welcome:
+    - Overview: index.md
+    - 友链: links.md
+  - 计算机基础:
+    - Introduction:
+      - MIT Missing Semester: cs/basic/MIT-Missing-Semester.md
+  #   - Python:
+  #   - 前端三件套:
+  #     - jaca script:
+  #     - css:
+  #     - html:
+  # - 信息安全:
+  # - 经济学:
+  # - 杂项: 
+  # - 生活:
+  #   - 观影记录: 
+  #   - 读书笔记:
+  #   - 总结:
+
