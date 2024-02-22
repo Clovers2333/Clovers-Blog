@@ -88,11 +88,15 @@ nav:
   #     - jaca script:
   #     - css:
   #     - html:
+      # - 计算机系统:
   # - 信息安全:
   # - 经济学:
   # - 杂项: 
-  # - 生活:
-  #   - 观影记录: 
-  #   - 读书笔记:
-  #   - 总结:
+  - 生活:
+    - 观影记录:
+      - 2024春节档: life/films/2024spring.md
+    - 读书笔记:
+      - 万历十五年: life/reading/wanli_15.md
+    - 总结:
+      - 23-24寒假总结: life/summary/23-24_winter_summary.md
 
