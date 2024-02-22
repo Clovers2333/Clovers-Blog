@@ -1,14 +1,90 @@
 site_name: Clovers' Blog
-docs_dir: docs #文档地址
-#主题配置
-theme:
-  name: material #指定主题
-  palette: #颜色配置
-    primary: indigo #主题颜色
-    accent: deep orange #强调文字颜色
-  language: zh #语言
+site_url: https://clovers2333.github.io/Clovers-Blog/
+site_description: test1
+repo_url: https://github.com/Clovers2333/Clovers-Blog/
+repo_name: Clovers2333/Clovers-Blog
+edit_uri: tree/master/docs
+copyright: Copyright &copy; Clovers
+
+theme: 
+  name: 'material'
+  language: 'zh'
+  icon: 
+    logo: material/notebook-outline
+  # custom_dir: overrides
   features:
-    - navigation.top #tab页展示方式 顶部 
-    - header.autohide #表头自动隐藏
+    - content.code.annotate
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+  font: false
+  palette:
+    - scheme: default
+
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - meta
+  - def_list
+  - attr_list
+  - md_in_html
+  - sane_lists
+  - admonition
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.magiclink
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.arithmatex:
+      generic: true
+
+validation:
+  nav:
+    omitted_files: info
+    not_found: warn
+    absolute_links: info
+  links:
+    not_found: ignore
+    absolute_links: ignore
+    unrecognized_links: ignore
+
+extra_css:
+
+extra_javascript:
+
 plugins:
-  - search #添加搜索框
+  # - rss
+  - search
+  # - glightbox:
+  #     width: 80%
+  # - git-revision-date-localized:
+  #     type: datetime
+  #     timezone: Asia/Shanghai
+  #     locale: zh
+  #     enable_creation_date: true
+  #     exclude:
+  #       - index.md
+  # - statistics:
+  #     page_check_metadata: comment
+
+# not_in_nav: todo.md
+
+nav:
+  - Home:
+    - index.md
+    
