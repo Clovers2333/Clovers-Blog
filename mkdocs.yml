@@ -59,23 +59,23 @@ validation:
     not_found: ignore
     absolute_links: ignore
     unrecognized_links: ignore
-    
-plugins:
-  # - rss
-  - search
-  # - glightbox:
-  #     width: 80%
-  # - git-revision-date-localized:
-  #     type: datetime
-  #     timezone: Asia/Shanghai
-  #     locale: zh
-  #     enable_creation_date: true
-  #     exclude:
-  #       - index.md
-  # - statistics:
-  #     page_check_metadata: comment
 
-# not_in_nav: todo.md
+plugins:
+  - rss
+  - search
+  - glightbox:
+      width: 80%
+  - git-revision-date-localized:
+      type: datetime
+      timezone: Asia/Shanghai
+      locale: zh
+      enable_creation_date: true
+      exclude:
+        - index.md
+  - statistics:
+      page_check_metadata: comment
+
+not_in_nav: todo.md
 
 nav:
   - Home:
