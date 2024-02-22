@@ -1,3 +1,14 @@
 site_name: Clovers' Blog
+docs_dir: docs #文档地址
+#主题配置
 theme:
-  name: material
+  name: material #指定主题
+  palette: #颜色配置
+    primary: indigo #主题颜色
+    accent: deep orange #强调文字颜色
+  language: zh #语言
+  features:
+    - navigation.top #tab页展示方式 顶部 
+    - header.autohide #表头自动隐藏
+plugins:
+  - search #添加搜索框
