@@ -455,10 +455,8 @@ However, if the user name is the entire line of the log, then it will cause prob
 
 1. [regex exercises](https://regexone.com/lesson)
 
-2. ```shell
-   $ cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | wc -l
-   ```
-
+2. `$ cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | wc -l`
+   
       - 大小写转换：`tr "[:upper:]" "[:lower:]"`(the same as `tr A-Z a-z`)
 
       - `^([^a]*a){3}.*[^'s]$`：查找一个以 a 结尾的字符串三次
@@ -466,7 +464,7 @@ However, if the user name is the entire line of the log, then it will cause prob
       - `grep -v "\'s$"`: 匹配结尾为’s 的结果，然后取反。 借助 `grep -v`.
 
       - 这些单词中，出现频率前三的末尾两个字母是什么？ `sed`的 `y`命令，或者 `tr` 程序也许可以帮你解决大小写的问题。
-   
+
    ```shell
    $ cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq -c | sort | tail -n3
     # 53 as
