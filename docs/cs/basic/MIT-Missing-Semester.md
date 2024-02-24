@@ -459,44 +459,43 @@ However, if the user name is the entire line of the log, then it will cause prob
    $ cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | wc -l
    ```
 
-   - 大小写转换：`tr "[:upper:]" "[:lower:]"`(the same as `tr A-Z a-z`)
+      - 大小写转换：`tr "[:upper:]" "[:lower:]"`(the same as `tr A-Z a-z`)
 
-   - `^([^a]*a){3}.*[^'s]$`：查找一个以 a 结尾的字符串三次
+      - `^([^a]*a){3}.*[^'s]$`：查找一个以 a 结尾的字符串三次
 
-   - `grep -v "\'s$"`: 匹配结尾为’s 的结果，然后取反。 借助 `grep -v`.
+      - `grep -v "\'s$"`: 匹配结尾为’s 的结果，然后取反。 借助 `grep -v`.
 
-   - 这些单词中，出现频率前三的末尾两个字母是什么？ `sed`的 `y`命令，或者 `tr` 程序也许可以帮你解决大小写的问题。
-
-     ```shell
-     $ cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq -c | sort | tail -n3
-     # 53 as
-     # 64 ns
-     # 102 an
-     ```
+      - 这些单词中，出现频率前三的末尾两个字母是什么？ `sed`的 `y`命令，或者 `tr` 程序也许可以帮你解决大小写的问题。
+  ```shell
+$ cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq -c | sort | tail -n3
+ # 53 as
+ # 64 ns
+ # 102 an
+  ```
 
    - 共存在多少种词尾两字母组合？
 
-     ```shell
-     $ cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq | wc -l
-     ```
+```shell
+$ cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq | wc -l
+```
 
    - 还有一个很有挑战性的问题：哪个组合从未出现过？ 为了得到没出现的组合，首先我们要生成一个包含全部组合的列表，然后再使用上面得到的出现的组合，比较二者不同即可。
 
-     ```shell
-     #!/bin/bash
-     for i in {a..z};do
-      for j in {a..z};do
-         echo  "$i$j"
-      done
-     done
-     # all.sh
-     
-     ./all.sh > all.txt
-     cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq > occurance.txt
-     diff --unchanged-group-format='' <(cat occurance.txt) <(cat all.txt) | wc -l
-     ```
+  ```shell
+   #!/bin/bash
+  for i in {a..z};do
+  	for j in {a..z};do
+    	 echo  "$i$j"
+  	done
+  done
+  # all.sh
+  
+  ./all.sh > all.txt
+  cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq > occurance.txt
+  diff --unchanged-group-format='' <(cat occurance.txt) <(cat all.txt) | wc -l
+  ```
 
-     `--unchanged-group-format=''`用于将两个文件中相同的内容设置为空字符串，剩下的内容就是差异的部分。
+-  `--unchanged-group-format=''`用于将两个文件中相同的内容设置为空字符串，剩下的内容就是差异的部分。
 
 3. To do in-place substitution it is quite tempting to do something like `sed s/REGEX/SUBSTITUTION/ input.txt > input.txt`. However this is a bad idea, because in this command, it will clear `input.txt` first.
 
