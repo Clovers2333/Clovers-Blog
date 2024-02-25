@@ -1,5 +1,14 @@
 # Overview
 
 欢迎来到我的博客！
+不定期更新一些学习笔记&发癫记录（？）
 
-## 
+## 为什么要搭建博客
+主要是自己太鸽了，经常一天下来干啥了也不知道，还是希望能够以博客的形式，以输出倒逼输入一下，记录自己的学习进度同时也方便后续的知识点检索。
+
+如果某些笔记能够给某些读者带来一点帮助，那真的不胜荣幸！
+
+## 关于我
+#### [:fontawesome-brands-github:](https://github.com/Clovers2333) [My GitHub](https://github.com/Clovers2333)
+
+#### [:material-email:](mailto:clovers2333@gmail.com) [My Gmail](mailto:clovers2333@gmail.com)  [:material-email-outline:](mailto:clovers2333@zju.edu.cn) and [My ZJU Email](mailto:clovers233@zju.edu.cn)
