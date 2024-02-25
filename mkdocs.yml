@@ -78,7 +78,7 @@ not_in_nav: todo.md
 
 nav:
   - Welcome:
-    - Overview: index.md
+    - 首页: index.md
     - 友链: links.md
   - 计算机基础:
     - Introduction:
@@ -93,8 +93,6 @@ nav:
   # - 经济学:
   # - 杂项: 
   - 生活:
-    - 观影记录:
-      - 2024春节档: life/films/2024spring.md
     - 读书笔记:
       - 万历十五年: life/reading/wanli_15.md
     - 总结:
