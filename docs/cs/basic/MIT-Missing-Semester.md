@@ -243,7 +243,9 @@ done
 
 - sort `ls` by recency: `ls -t`
 
-- ```bash
+- Ex.2:
+  
+  ```shell
   varName="Aloha"
   echo "varName is not empty: the two constructs behave the same"
   echo ${varName-Hello World}
@@ -262,13 +264,13 @@ done
   # Basically `:-` changes the values of the variable if it's empty or not set, and `:` changes it if it's not set.	
   # use "" to escape the influence of `space`
   ```
-
-- **What is `&&` in Bash?** In Bash — and many other programming languages — `&&` means “AND”. And in command execution context like this, it means items to the left as well as right of `&&` should be run in sequence in this case.
-
-  **What is `&` in Bash?** And a single `&` means that the preceding commands — to the immediate left of the `&` — should simply be run in the background.
-
-- **There is a problem in exercise 3 that why the other codes don't work except the `until` code?**
-
+  
+  - **What is `&&` in Bash?** In Bash — and many other programming languages — `&&` means “AND”. And in command execution context like this, it means items to the left as well as right of `&&` should be run in sequence in this case.
+  
+    **What is `&` in Bash?** And a single `&` means that the preceding commands — to the immediate left of the `&` — should simply be run in the background.
+  
+  - **There is a problem in exercise 3 that why the other codes don't work except the `until` code?**
+  
 - ```bash
   $ zip [options] <zipfile> <file1> <file2> <...> # compress files
   $ 7z x <zipfile> # extract zipfile
