@@ -9,6 +9,6 @@
 如果某些笔记能够给某些读者带来一点帮助，那真的不胜荣幸！
 
 ## 关于我
-#### [:fontawesome-brands-github:](https://github.com/Clovers2333) [My GitHub](https://github.com/Clovers2333)
+####  [My GitHub](https://github.com/Clovers2333)
 
-#### [:material-email:](mailto:clovers2333@gmail.com) [My Gmail](mailto:clovers2333@gmail.com)  [:material-email-outline:](mailto:clovers2333@zju.edu.cn) and [My ZJU Email](mailto:clovers233@zju.edu.cn)
+####  [My Gmail](mailto:clovers2333@gmail.com)   and [My ZJU Email](mailto:clovers233@zju.edu.cn)
