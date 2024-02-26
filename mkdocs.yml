@@ -24,15 +24,15 @@ theme:
     # - header.autohide # 自动隐藏header
     # - navigation.expand # 默认展开导航栏
     - navigation.footer # 底部导航栏
-    - navigation.indexes # 索引按钮可以直接触发文件，而不是只能点击其下属选项浏览，这个功能可以给对应的section提供很好的预览和导航功能
+    # - navigation.indexes # 索引按钮可以直接触发文件，而不是只能点击其下属选项浏览，这个功能可以给对应的section提供很好的预览和导航功能
     # - navigation.instant # 瞬间加载 最好注释掉，多语言切换这个会导致跳回首页
     # - navigation.instant.prefetch # 预加载
     # - navigation.instant.progress # 进度条
     # - navigation.path # 导航路径， 目前好像没啥用
     # - navigation.prune # 只构建可见的页面
     - navigation.sections # 导航栏的section
-    - navigation.tabs # 顶级索引被作为tab
-    - navigation.tabs.sticky # tab始终可见
+    # - navigation.tabs # 顶级索引被作为tab
+    # - navigation.tabs.sticky # tab始终可见
     - navigation.top # 开启顶部导航栏
     - navigation.tracking # 导航栏跟踪
     - search.highlight # 搜索高亮
