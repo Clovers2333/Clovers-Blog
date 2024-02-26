@@ -31,8 +31,8 @@ theme:
     # - navigation.path # 导航路径， 目前好像没啥用
     # - navigation.prune # 只构建可见的页面
     - navigation.sections # 导航栏的section
-    # - navigation.tabs # 顶级索引被作为tab
-    # - navigation.tabs.sticky # tab始终可见
+    - navigation.tabs # 顶级索引被作为tab
+    - navigation.tabs.sticky # tab始终可见
     - navigation.top # 开启顶部导航栏
     - navigation.tracking # 导航栏跟踪
     - search.highlight # 搜索高亮
