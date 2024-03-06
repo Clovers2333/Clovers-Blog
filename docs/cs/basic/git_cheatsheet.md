@@ -28,6 +28,8 @@
 > git mergetool: use a fancy tool to help resolve merge conflicts
 > git rebase: rebase set of patches onto a new base
 > git branch -vv: tell all the branches
+> git reset <hash>: switch to certain commit
+	git reset --hard HEAD: throw away all the changes, back to the HEAD commit
 ```
 
 ### Git Remote
