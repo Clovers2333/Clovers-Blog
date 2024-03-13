@@ -6,7 +6,7 @@
 
 ```shell
 > git init: to create `.git` in the folder
-> git status: what is the status of the current repository
+> git status: what is the status of the current repository  # see your changes
 > git add <files> / git add .
 > git commit -m "commit-message"
 > git log --all --graph --decorate: visualizes history as a DAG
@@ -17,7 +17,10 @@
 > git diff address1 address2 <file>: find differences between two snapshot
 ```
 
+
+
 ### Branching and Merging
+
 ```shell
 > git branch: list all the branches that are presented in the local directory
 > git branch <name>: creates a branch (its parent is `HEAD`)
@@ -31,6 +34,8 @@
 > git reset <hash>: switch to certain commit
 	git reset --hard HEAD: throw away all the changes, back to the HEAD commit
 ```
+
+
 
 ### Git Remote
 
@@ -48,6 +53,33 @@
 # git clone will clone the whole history from remote, and use `git clone --shallow` can just clone the latest snapshot
 ```
 
+
+
+### Git Stash
+
+> When using `git pull`, you might encounter with the error `Your local changes would be overwritten by merge` because you have make some changes to the last commit. If you don't want to commit your current changes, you can temporarily push your changes to a stack.
+
+> With reference to: https://blog.csdn.net/a112626290/article/details/106981153
+
+```bash
+> git stash # back up the changes to the stack; use `git status` after this command you will find no changes
+> git stash list [<options>] # list all the backups
+> git stash show [<options>] [<stash>] 
+> git stash drop [-q|--quiet] [<stash>] # drop the backup at the top
+> git stash ( pop | apply ) [--index] [-q|--quiet] [<stash>] 
+# apply: merge the top backup with current workspace
+# apply + drop, files that have conflicts won't be deleted
+> git stash branch <branchname> [<stash>]
+> git stash [push [-p|--patch] [-k|--[no-]keep-index] [-q|--quiet]
+	     [-u|--include-untracked] [-a|--all] [-m|--message <message>]
+	     [--] [<pathspec>…]]
+> git stash clear # clear the stack
+> git stash create [<message>]
+> git stash store [-m|--message <message>] [-q|--quiet] <commit>
+```
+
+
+
 ### Others
 
 ```shell
@@ -60,6 +92,8 @@
 > git bisect: binary search history (e.g. for regressions)
 ```
 
+
+
 ## [Write Good Git Commits](https://cbea.ms/git-commit/#capitalize)
 
 ### Why good commit messages matter
@@ -67,6 +101,8 @@
 - Keep a healthy commit history
 - Make the git log more beautiful
 - Uniform commit rules, make it easier for others to understand
+
+
 
 ### How to write great Git commit message
 
@@ -80,7 +116,7 @@ Markup syntax, wrap margins, grammar, capitalization, punctuation. Spell these t
 
 What kind of information should the body of the commit message (if any) contain? What should it not contain?
 
-#### Metadata. 
+#### Metadata.
 
 How should issue tracking IDs, pull request numbers, etc. be referenced?
 
