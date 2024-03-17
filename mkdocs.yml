@@ -73,6 +73,17 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
+extra_javascript:
+  - javascripts/katex.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+
 validation:
   nav:
     omitted_files: info
@@ -110,13 +121,13 @@ nav:
     - 编程语言:
       - Python:
         - CS61A: cs/languages/python/cs61a.md
-        - cheatsheet: cs/languages/python/chearsheet.md
+        - cheatsheet: cs/languages/python/cheatsheet.md
   #   - 前端三件套:
   #     - jaca script:
   #     - css:
   #     - html:
-      - 计算机系统:
-        - CSAPP: cs/system/csapp.md
+    - 计算机系统:
+      - CSAPP: cs/system/csapp.md
   # - 信息安全:
   # - 经济学:
   # - 杂项: 
