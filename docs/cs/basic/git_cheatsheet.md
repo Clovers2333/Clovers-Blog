@@ -41,6 +41,7 @@
 > git reset HEAD <files>: undo the operation `git add`
 > git reset --soft HEAD^: undo the operation `git commit`
 > git reset --hard HEAD: throw away all the changes, back to the HEAD commit
+> git commit --amend: just modify the commit message(entering vim)
 ```
 
 
