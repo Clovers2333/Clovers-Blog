@@ -57,7 +57,7 @@
 
 ### Git Stash
 
-> When using `git pull`, you might encounter with the error `Your local changes would be overwritten by merge` because you have make some changes to the last commit. If you don't want to commit your current changes, you can temporarily push your changes to a stack.
+> When using `git pull`, you might encounter the error `Your local changes would be overwritten by merge` because you have make some changes to the last commit. If you don't want to commit your current changes, you can temporarily push your changes to a stack.
 
 > With reference to: https://blog.csdn.net/a112626290/article/details/106981153
 
