@@ -107,12 +107,16 @@ nav:
     - Introduction:
       - MIT Missing Semester: cs/basic/MIT-Missing-Semester.md
       - Git Cheatsheet: cs/basic/git_cheatsheet.md
-  #   - Python:
+    - 编程语言:
+      - Python:
+        - CS61A: cs/languages/python/cs61a.md
+        - cheatsheet: cs/languages/python/chearsheet.md
   #   - 前端三件套:
   #     - jaca script:
   #     - css:
   #     - html:
-      # - 计算机系统:
+      - 计算机系统:
+        - CSAPP: cs/system/csapp.md
   # - 信息安全:
   # - 经济学:
   # - 杂项: 
