@@ -270,7 +270,7 @@ PTR_TO_ARRAY x;
 
     explanation:
 
-    ![https://github.com/Clovers2333/picx-images-hosting/raw/master/Hidden-conversion.3nrdjvgmo5.webp]()
+    ![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Hidden-conversion.3nrdjvgmo5.webp)
 
     
 

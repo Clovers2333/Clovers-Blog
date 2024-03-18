@@ -152,7 +152,7 @@ $$
 
 - `AOE——activity on edge`，有向无环图，活动在边上； `AOV——activity on verticles`，有向无环图，活动在点上。
 
-    ![https://github.com/Clovers2333/picx-images-hosting/raw/master/AOE.8z6a4lc2el.webp]()
+    ![](https://github.com/Clovers2333/picx-images-hosting/raw/master/AOE.8z6a4lc2el.webp)
 
     LC：最长路；EC：最短路。
 
