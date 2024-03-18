@@ -118,6 +118,8 @@ nav:
     - Introduction:
       - MIT Missing Semester: cs/basic/MIT-Missing-Semester.md
       - Git Cheatsheet: cs/basic/git_cheatsheet.md
+      - 程序设计与算法基础: cs/basic/fpa.md
+      - 数据结构基础: cs/basic/fds.md
     - 编程语言:
       - Python:
         - CS61A: cs/languages/python/cs61a.md
