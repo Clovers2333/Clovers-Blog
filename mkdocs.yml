@@ -4,7 +4,7 @@ site_description: test1
 repo_url: https://github.com/Clovers2333/Clovers-Blog/
 repo_name: Clovers2333/Clovers-Blog
 edit_uri: tree/master/docs
-copyright: Copyright &copy; Clovers
+copyright: Copyright &copy; 2024 Clovers
 
 theme: 
   name: 'material'
