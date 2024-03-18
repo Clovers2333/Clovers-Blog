@@ -31,14 +31,18 @@ qsort(arr, sz, sizeof(arr[0]), cmp_int);
 对于递推式 $T(n)=aT(\frac{n}{b})+O(n^d)$
 
 则：
+
 $$
+\begin{aligned}
 T(n)=
 \begin{cases}
 O(n^d),d>log_ba \\
 O(n^dlogn),d=log_ba\\
 O(n^{log_ba}),d<log_ba
 \end{cases}
+\end{aligned}
 $$
+
 还是比较好推导的，按照层数推，当时只记定理现在想也想不起来。。
 
 Fib 复杂度：$O(2^n)$
@@ -46,9 +50,11 @@ Fib 复杂度：$O(2^n)$
 ## 卡特兰数
 
 $$
-C(0)=1 \\
-C(n+1)=\sum_{i=0}^{n}C(i)C(n-i)\\
-C(n)=\binom{2n}{n}/(n+1)
+\begin{aligned}
+C(0)&=1 \\
+C(n+1)&=\sum_{i=0}^{n}C(i)C(n-i)\\
+C(n)&=\binom{2n}{n}/(n+1)
+\end{aligned}
 $$
 
 使用场景：$n$ 的括号序列；$n$ 的出入栈序列；$n+2$ 边形的三角剖分；$n+1$ 个叶子节点的国际满二叉树（只有 0 度点和 2 度点，补充：$n0=n2+1$）
