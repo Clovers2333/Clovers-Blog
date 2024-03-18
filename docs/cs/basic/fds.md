@@ -122,7 +122,6 @@ $$
 - 有逆天题目节点是 1 ，但是从 0 下标开始存
 - 并查集：按秩合并（union-by-size），路径压缩（path compression）
 - Strongly connected directed graph G：任意 `i` 到 `j` 都有路径。
-- 
 
 ### 最短路
 
@@ -153,7 +152,7 @@ $$
 
 - `AOE——activity on edge`，有向无环图，活动在边上； `AOV——activity on verticles`，有向无环图，活动在点上。
 
-    ![](C:\Users\22802\university\Lessons\Fundamental_Data_Structure\photos\AOE.png)
+    ![https://github.com/Clovers2333/picx-images-hosting/raw/master/AOE.8z6a4lc2el.webp]()
 
     LC：最长路；EC：最短路。
 
@@ -263,7 +262,7 @@ void  Qsort( ElementType A[ ], int Left, int Right ) {
 
 - 哈希表：
 
-    ![](C:\Users\22802\university\Lessons\Fundamental_Data_Structure\photos\Hash Table.png)
+    ![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Hash-Table.5c0qh2g9ww.webp)
 
 1.常见的对 $key$ 操作方法：取余法、平方取中、折叠相加法、数值分析法（变化最大的位数）
 

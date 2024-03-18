@@ -2,7 +2,7 @@
 
 ## 指针（预习？）（学不会一点）
 
-#### 关于指针的一些声明 
+#### 关于指针的一些声明
 
 - `NULL `是⼀个预定定义的符号，表示0地址
 
@@ -268,7 +268,9 @@ PTR_TO_ARRAY x;
 
     answer: A
 
-    explanation:![](C:\Users\22802\university\Lessons\Fundamental Programming & Algorithm\photos\Hidden conversion.png)
+    explanation:
+
+    ![https://github.com/Clovers2333/picx-images-hosting/raw/master/Hidden-conversion.3nrdjvgmo5.webp]()
 
     
 
@@ -367,7 +369,7 @@ for (i = 1; i <= 10; i++){
 
 ### 运算优先级（W1）
 
-![](C:\Users\22802\university\Lessons\Fundamental Programming & Algorithm\photos\operation_priority.png)
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/operation_priority.6pn9l3hyvf.webp)
 
 - 其中单目运算符、赋值运算是**右结合**；赋值运算的运算优先级很低很低！
 
@@ -387,7 +389,7 @@ for (i = 1; i <= 10; i++){
 
 `float` 和 `double `的区别：
 
-![](C:\Users\22802\university\Lessons\Fundamental Programming & Algorithm\photos\The difference between float&double.png)
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/The-difference-between-float&double.60u012ufv4.webp)
 
 `float` 和 `double` 的默认输出都是保留 6 位小数
 
@@ -440,7 +442,7 @@ switch (expression){
 
 - 形参（`former parameter`）和实参（`real parameter`）的区别：
 
-    ![](C:\Users\22802\university\Lessons\Fundamental Programming & Algorithm\photos\The difference between former&real parameter.png)
+    ![](https://github.com/Clovers2333/picx-images-hosting/raw/master/The-difference-between-former&real-parameter.7i052tyklv.webp)
 
 - `Local are to the execution rather than the function.`: 函数内的变量不是以函数为单位定义的，而是每执行一次就新分配内存空间，执行完释放。
 
@@ -559,7 +561,7 @@ switch (expression){
 
 - 字符数组的不同定义：
 
-    ![](C:\Users\22802\university\Lessons\Fundamental Programming & Algorithm\photos\Differences of the char array definition.png)
+    ![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Differences-of-the-char-array-definition.8kzudpuegz.webp)
 
 - 一些字符串函数的用法：（`string.h` 库）
 
@@ -618,7 +620,7 @@ void array_inflate(Array *a, int more_size) {
 
 `double` 存储分配：
 
-![](C:\Users\22802\university\Lessons\Fundamental Programming & Algorithm\photos\Internal Presentation of Floating.png)
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Internal-Presentation-of-Floating.1ov6tjb4cn.webp)
 
 - `bool` 所在库：`<stdbool.h>`
 
@@ -653,7 +655,7 @@ void array_inflate(Array *a, int more_size) {
 
 ### 编译预处理指令（宏）(W14)
 
-![](C:\Users\22802\university\Lessons\Fundamental Programming & Algorithm\photos\Compiling process.png)
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Compiling-process.7ljr0jrnb5.webp)
 
 - `#` 开头的是编译预处理指令 
 
@@ -721,7 +723,7 @@ void array_inflate(Array *a, int more_size) {
 
 - 一些反直觉的东西：（好像只是在 Windows 中的垃圾 dev 里面有）
 
-    ![](C:\Users\22802\university\Lessons\Fundamental Programming & Algorithm\photos\Misunderstanding of include.png)
+    ![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Misunderstanding-of-include.5j3ycht2a1.webp)
 
 - 不对外公开函数：在函数前面加上 `static ` 就使得它成为只能在所在的编译单元中被使用的函数（编译单元：一个文件）
 
@@ -776,7 +778,7 @@ void array_inflate(Array *a, int more_size) {
 1）缺定义。当程序中出现对某个外部对象的使用，而连接程序找不到对应的定义时，将产生这个错误。（有声明但是没有定义）
 2）重复定义。当被连接的各个部分中出现某个名字的多个定义时，将产生这个错误。
 
-e.g.![](C:\Users\22802\university\Lessons\Fundamental Programming & Algorithm\photos\An example of linking error.png)
+e.g. ![](https://github.com/Clovers2333/picx-images-hosting/raw/master/An-example-of-linking-error.4jnuzbqb3y.webp)
 
 答案应该是链接错误（题目错了应该 `include` 一下 `stdio.h`）。
 
