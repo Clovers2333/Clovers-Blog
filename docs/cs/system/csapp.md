@@ -26,7 +26,7 @@ Course Overview.
 
 - -128 补码（对于八位来说）为 `10000000`；原码和反码的可表示区间都是 `-127~127`，因为 0 被表示了两次。
 
-- **负数补码转原数：$-2^n +$​ 后面非符号位的数值**，即对于负数反过来表示。
+- **负数补码转原数：$-2^n +$ 后面非符号位的数值**，即对于负数反过来表示。
 
     或：$[X_\textbf{T}]_补=(2^n+X_\textbf{T}) \% 2^n$，其中 $X_\textbf{T}$ 为原数。
 
@@ -92,7 +92,7 @@ x>>1&=-2^n+(w/2)
 \end{aligned}
 $$
 
-​	需要注意的点：$(-3)>>1=-2,(-1)>>1=-1$​
+   需要注意的点：$(-3)>>1=-2,(-1)>>1=-1$
 
 - 对于一个数取反：所有位取反，然后 +1 （$-\textbf{Tmin} = \textbf{Tmin}$）
 
@@ -137,10 +137,10 @@ void show_bytes(pointer start, size_t len){
 int a = 15213;
 show_bytes((pointer) &a, sizeof(int));
 /*
-0x7fffb7f7dbc	6d
-0x7fffb7f7dbd	3b
-0x7fffb7f7dbe	00
-0x7fffb7f7dbf	00
+0x7fffb7f7dbc   6d
+0x7fffb7f7dbd   3b
+0x7fffb7f7dbe   00
+0x7fffb7f7dbf   00
 */
 
 /*
@@ -164,12 +164,12 @@ $$
 
 ### Normalized Values
 
-- 过大过小情况占用：$exp \neq 000...0$ and $exp \neq 111...1$.
+- 过大过小情况占用：$Exp \neq 000...0$ and $Exp \neq 111...1$.
 
-- 指数位不用补码，而是 $E=exp-bias$.
+- 指数位不用补码，而是 $E=Exp-Bias$.
 
-    - exp: unsigned value of exp filed.
-    - bias: $2^{k-1}-1$.（如对于 single precision: `bias = 127, exp: 1...254; E: -126...127`）
+    - Exp: unsigned value of exp filed.
+    - Bias: $2^{k-1}-1$.（如对于 single precision: `Bias = 127, Exp: 1...254; E: -126...127`）
     - 不采用补码的原因：对于 `int` ，最常见的运算是加减运算，所以采用补码；而对于 `double` 对指数的加减法并不常见，“比较大小”成为了更常见的运算，所以用 `unsigned` 更快。
 
 - Signficand coded with implied leading 1.
@@ -180,9 +180,9 @@ $$
 
 ### Denormalized Values
 
-- Condition: `exp = 000...0`.
+- Condition: `Exp = 000...0`.
 
-- exp: $E=1-bias$（不是 normalized 里面的 `0-bias` ！）
+- exp: $E=1-Bias$（不是 normalized 里面的 `0-Bias` ！）
 
 - Signficand coded with implied 0.
 
@@ -194,7 +194,7 @@ $$
 
 ### Special Values
 
-- Condition: `exp = 111...1`.
+- Condition: `Exp = 111...1`.
 - Case 1: `frac = 000...0`——Represent value `infinity`
     - `1.0/0.0, 1.0/(-0.0)`.
 - Case 2: `frac != 000...0`——Represent `NaN(Not-a-Number)`
