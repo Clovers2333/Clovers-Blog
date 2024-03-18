@@ -6,7 +6,7 @@ Course Overview.
 
 
 
-## Lecture 2
+## Lecture 2 - Bits, Bytes and Integer
 
 ### 不同机器的数据类型所占位数
 
@@ -76,7 +76,7 @@ Course Overview.
 
 
 
-## Lecture 3
+## Lecture 3 - Bits, Bytes and Integer
 
 ### 二进制的运算
 
