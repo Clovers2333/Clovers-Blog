@@ -2,6 +2,8 @@
 
 ## Commands
 
+
+
 ### Basis
 
 ```shell
@@ -140,6 +142,7 @@ How should issue tracking IDs, pull request numbers, etc. be referenced?
 7. Use the body to explain **what** and **why** vs. **how**
 
 Example:
+
 ```
 Summarize changes in around 50 characters or less
 

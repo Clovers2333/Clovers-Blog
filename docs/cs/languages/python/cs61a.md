@@ -2,9 +2,9 @@
 
 - **函数化思想和模块化思想**。
 
-  对于 python 语言来讲，他的一大优势就是解释性且函数传参自由性强。无论是从 project 的设置，还是从平常课程上的演示代码，John 都鼓励学生用一个个函数来封装每一个小功能，这样既使代码各部分的独立性高，也使比较大的项目更易于长期维护。
+    对于 python 语言来讲，他的一大优势就是解释性且函数传参自由性强。无论是从 project 的设置，还是从平常课程上的演示代码，John 都鼓励学生用一个个函数来封装每一个小功能，这样既使代码各部分的独立性高，也使比较大的项目更易于长期维护。
 
-  PS. Jupyter Notebook 也是一个不错的选择。
+    PS. Jupyter Notebook 也是一个不错的选择。
 
 - ban assignments
 
@@ -20,12 +20,12 @@
 
 - `print` 一个没有返回值的函数会输出 `None`
 
-  ```python
-  >>> print(print(1),print(2))
-  1
-  2
-  None None
-  ```
+    ```python
+    >>> print(print(1),print(2))
+    1
+    2
+    None None
+    ```
 
 - default value：`f(n, d=10)`：如果 `d` 没有被传参，那么默认为 10.
 
@@ -33,19 +33,19 @@
 
 - `python3 -m doctest *.py`: 为函数测试特定数据
 
-  ```python
-  def f(n, d):
-      """
-      >>> q, r = f(2013, 10)
-      >>> q
-      201
-      >>> r
-      3
-      """
-      return n//d, n%d
-  ```
+    ```python
+    def f(n, d):
+        """
+        >>> q, r = f(2013, 10)
+        >>> q
+        201
+        >>> r
+        3
+        """
+        return n//d, n%d
+    ```
 
-  这样就会测试在注释里面的数据（如果没有错，不会输出信息）
+    这样就会测试在注释里面的数据（如果没有错，不会输出信息）
 
 - `python -i *.py`: 把 `*.py` 作为环境，然后进行交互式编程。
 
@@ -76,10 +76,10 @@ def f1():
 
 - 记录一下课件上对于函数 `f(x)` 的定义：
 
-  ```
-  - f(x) for user-defined function f: switch to a new environment; excute f's body.
-  - return statement within f: switch back to the previous environment; f(x) now has a value.
-  ```
+    ```
+    - f(x) for user-defined function f: switch to a new environment; excute f's body.
+    - return statement within f: switch back to the previous environment; f(x) now has a value.
+    ```
 
 - 反函数：
 
@@ -200,20 +200,20 @@ def make_anonymous_factorial():
 
 - 使用 higher-order function 使结构体更具抽象化：
 
-  ```python
-  def rational(n, d):
-      def select(name):
-          if name == 'n':
-              return n
-          elif name =='d':
-              return d
-      return select
-  
-  def numer(x):
-      return x('n')
-  def denom(x):
-      return x('d')
-  ```
+    ```python
+    def rational(n, d):
+        def select(name):
+            if name == 'n':
+                return n
+            elif name =='d':
+                return d
+        return select
+    
+    def numer(x):
+        return x('n')
+    def denom(x):
+        return x('d')
+    ```
 
 #### Dictionary
 
@@ -258,15 +258,15 @@ def make_anonymous_factorial():
 
 - 非常神奇的一个现象，先引用后修改会报错：
 
-  ```python
-  a = 1
-  def fun():
-      print(a) # 先引用
-      a = 2 # 再修改
-  fun()
-  ```
+    ```python
+    a = 1
+    def fun():
+        print(a) # 先引用
+        a = 2 # 再修改
+    fun()
+    ```
 
-  如果一定要用外面的 `a`，那么就要加一句 `global a`. 注意这里不能定义成 `nonlocal`；但如果是非全局变量，那么就必须定义成 `nonlocal`.
+    如果一定要用外面的 `a`，那么就要加一句 `global a`. 注意这里不能定义成 `nonlocal`；但如果是非全局变量，那么就必须定义成 `nonlocal`.
 
 #### 函数未知参数个数
 

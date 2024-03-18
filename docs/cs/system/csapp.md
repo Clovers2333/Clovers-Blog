@@ -28,7 +28,7 @@ Course Overview.
 
 - **负数补码转原数：$-2^n +$​ 后面非符号位的数值**，即对于负数反过来表示。
 
-  或：$[X_\textbf{T}]_补=(2^n+X_\textbf{T}) \% 2^n$，其中 $X_\textbf{T}$ 为原数。
+    或：$[X_\textbf{T}]_补=(2^n+X_\textbf{T}) \% 2^n$，其中 $X_\textbf{T}$ 为原数。
 
 #### 变形补码
 
@@ -40,37 +40,37 @@ Course Overview.
 
 - If there is a mix of unsigned and signed in a single expression, **signed values implicitly cast to unsigned.**
 
-  e.g.  `2147483647U < -2147483647-1`；`(unsigned)-1 > -2`
+    e.g.  `2147483647U < -2147483647-1`；`(unsigned)-1 > -2`
 
 - What is the return value of `f(Tmin)`?
 
-  ```c
-  int f(int x){
-      if (x < 0) return -x;
-      else return x;
-  }
-  ```
+    ```c
+    int f(int x){
+        if (x < 0) return -x;
+        else return x;
+    }
+    ```
 
-  - 仍然是 `Tmin`，用补码 `0` 去减 `10000...`，仍然是 `10000....`
+    - 仍然是 `Tmin`，用补码 `0` 去减 `10000...`，仍然是 `10000....`
 
 - Another example:
 
-  ```c
-  int i;
-  for (int i = n; i-sizeof(char) >= 0; i--);
-  ```
+    ```c
+    int i;
+    for (int i = n; i-sizeof(char) >= 0; i--);
+    ```
 
-  这样仍然不会停下，因为 `sizeof` 作为操作符它解析出来的是一个无符号的值。
+    这样仍然不会停下，因为 `sizeof` 作为操作符它解析出来的是一个无符号的值。
 
 ### Sign Extension
 
 - 对于低位数的数据类型映射到高位数：用最高位补齐
 
-  即：如果是正数，那么就全补 0；如果是负数，那么就全补 1。在这种补位规则下，可以保证补码所表示的数仍相同。
+    即：如果是正数，那么就全补 0；如果是负数，那么就全补 1。在这种补位规则下，可以保证补码所表示的数仍相同。
 
 - 对于高位数的数据映射到低位数：将高位截断。
 
-  如果是在低位数表示范围内的，那么容易推出还是原数；如果大于表示范围，那么符号位会被截掉，溢出也没有办法了。
+    如果是在低位数表示范围内的，那么容易推出还是原数；如果大于表示范围，那么符号位会被截掉，溢出也没有办法了。
 
 - **以上规则是针对有符号数，如果是无符号数扩展，直接加 0.**
 

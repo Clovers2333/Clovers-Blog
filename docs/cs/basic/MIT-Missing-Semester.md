@@ -4,19 +4,19 @@
 
 ## L1: Course Overview + The Shell
 
-  - `echo`：输出命令行参数：用空格分隔参数，不同的参数之间换行；`""` 可以使得 shell 输出带空格的参数。
+- `echo`：输出命令行参数：用空格分隔参数，不同的参数之间换行；`""` 可以使得 shell 输出带空格的参数。
 
-  - 环境变量：`PATH`；在 shell 中输入 `echo $PATH` ，会输出一系列以分号分隔的路径，每次 shell 运行的时候就会去这些 PATH 里面找代码。
+- 环境变量：`PATH`；在 shell 中输入 `echo $PATH` ，会输出一系列以分号分隔的路径，每次 shell 运行的时候就会去这些 PATH 里面找代码。
 
     每次运行一条命令时就会遍历文件夹和PATH看看有没有符合的命令或者文件。
 
     在 Linux 中，可以用 `which <command>` 来查看该命令所在的文件夹。
 
-  - Windows 文件路径：用 `\` 反斜杠；Linux/macOS：用 `/` 
+- Windows 文件路径：用 `\` 反斜杠；Linux/macOS：用 `/` 
 
     在 Windows 中，每个驱动器都有一个单独的路径结构（C盘、D盘）；而在 Linux 或 macOS 上，所有文件都挂载在一个命名空间下，也叫做根目录。
 
-  - 绝对路径（absolute path）：可以精确确定一个文件的位置
+- 绝对路径（absolute path）：可以精确确定一个文件的位置
 
     相对路径（relative path）：相对于你当前所在位置的文件位置
 
@@ -32,15 +32,15 @@
 
     类似地，`ls ..` 是展示父亲文件夹中的文件。
 
-  - 在 Linux 中：`cd ~` ：返回根目录；`cd -` 返回上一次进入的目录（可以很方便地在两个目录间切换）
+- 在 Linux 中：`cd ~` ：返回根目录；`cd -` 返回上一次进入的目录（可以很方便地在两个目录间切换）
 
-  - 告诉你命令的参数：`<command> --help`(Linux)；`help <command>`(Windows)
+- 告诉你命令的参数：`<command> --help`(Linux)；`help <command>`(Windows)
 
     举例：`ls --help` 出现： `ls [OPTION]... [FILE]...`
 
     其中，`[]` 表示可选；`...` 表示可以有零个、一个或者多个
 
-  - `ls -l`：更详细地显示文件的信息，接下来介绍第一组字符串的阅读方式：（UGO 控制模型）
+- `ls -l`：更详细地显示文件的信息，接下来介绍第一组字符串的阅读方式：（UGO 控制模型）
 
     前三个为一组是文件所有者设置的权限；第二组三个字符是拥有该文件的组的权限；最后三个字符：其他人的权限。
 
@@ -50,29 +50,29 @@
 
     - 对于“可读、可写、可执行”的进一步阐释：
 
-      文件和目录的含义不同，对于文件较容易理解；
+        文件和目录的含义不同，对于文件较容易理解；
 
-      对于目录：不可读意味着你看不到目录里面的文件是什么，不能把它们 list 出来；
+        对于目录：不可读意味着你看不到目录里面的文件是什么，不能把它们 list 出来；
 
-      对于目录：不可写意味着你不能添加、删除或者重命名目录里面的文件，但是改动文件是可以的。（你可以清空文件，但是不能删除）；
+        对于目录：不可写意味着你不能添加、删除或者重命名目录里面的文件，但是改动文件是可以的。（你可以清空文件，但是不能删除）；
 
-      对于目录：不可执行意味着你不能进入该目录，如果你要 `cd` 这个目录，或者读取这个目录里面的文件，你必须拥有该目录及其所有父目录的执行权限。
+        对于目录：不可执行意味着你不能进入该目录，如果你要 `cd` 这个目录，或者读取这个目录里面的文件，你必须拥有该目录及其所有父目录的执行权限。
 
-      `r-x` 意味着可读、可执行、但是不可写
+        `r-x` 意味着可读、可执行、但是不可写
 
-  - `mv`：更改文件路径；即既可以重命名文件，也可以移动文件（其实就是路径，但因为重命名都是在当前文件夹下执行的，所以长得像重命名操作）
+- `mv`：更改文件路径；即既可以重命名文件，也可以移动文件（其实就是路径，但因为重命名都是在当前文件夹下执行的，所以长得像重命名操作）
 
-  - `cp`：将一个文件路径复制到另外一个路径。
+- `cp`：将一个文件路径复制到另外一个路径。
 
-  - `rm`：删除文件路径，不能删除目录；要用 `rm -r` 进行递归删除，即删除这个路径以后删除这个路径下的所有文件。`rmdir` 可以删除一个空目录（比较安全）；`mkdir`：创建一个空目录（`mkdir Hello world` 会创建两个文件夹！）
+- `rm`：删除文件路径，不能删除目录；要用 `rm -r` 进行递归删除，即删除这个路径以后删除这个路径下的所有文件。`rmdir` 可以删除一个空目录（比较安全）；`mkdir`：创建一个空目录（`mkdir Hello world` 会创建两个文件夹！）
 
-  - `man <command>`：更详细的 `--help`，更适合阅读。（敲 q 退出）
+- `man <command>`：更详细的 `--help`，更适合阅读。（敲 q 退出）
 
-  - `Ctrl+L`：相当于 `clear` 命令。
+- `Ctrl+L`：相当于 `clear` 命令。
 
 
 
-  - 每个程序都有两个流：输入流和输出流，一般情况下，我们在终端输入，然后输出流在终端显示；但是 `shell` 给我们提供了重定向这些流的方法（rewire these streams），改变这些流的指向。
+- 每个程序都有两个流：输入流和输出流，一般情况下，我们在终端输入，然后输出流在终端显示；但是 `shell` 给我们提供了重定向这些流的方法（rewire these streams），改变这些流的指向。
 
     最简单的方法是 `<` 和 `>`，如 `echo hello > hello.txt`，就是将输出流定向到 `hello.txt` 这个文件中（本质就是：把本来终端要出现的一切东西定向过去 / 把本来要在终端输入的东西从文件里读过来）
 
@@ -80,11 +80,11 @@
 
     如果把 `>` 改成 `>>` 则表示输出流追加而不是覆盖，即在输出的目标文件后面再加上我的输出流。
 
-  - `|` ：管道符，将左边程序的输出作为右边程序的输入
+- `|` ：管道符，将左边程序的输出作为右边程序的输入
 
     如：`ls -l / | tail -n1`：把根目录所有文件具体信息作为输入，然后执行 `tail` 操作，输出最后一行。
 
-  - 有关 `root` 用户：可以干任何事情。大多数情况下，你不会是 `root` 用户；假如你要使用，那么你需要执行 `sudo` 这个程序。
+- 有关 `root` 用户：可以干任何事情。大多数情况下，你不会是 `root` 用户；假如你要使用，那么你需要执行 `sudo` 这个程序。
 
     举例：假如你进入根目录下 `sys` 这个目录，这个目录里保存的不是你计算机内的文件，而是各种内核参数。比如你想通过更改 `brightness` 中的参数来改变屏幕的亮度，然后你运行 `sudo echo 500 > brightness`，发现操作不允许，这其实是因为**输入和输出流不是为程序所知道的**（即 `echo` 不知道 `brightness`）， 即你运行 `sudo` 的程序，参数是 `echo` 和 `500`，但是输出流操作还是基于你当前的 shell，而你的用户不是 `root` ，所以不能写入。
 
@@ -92,19 +92,19 @@
 
     还有一种方法：`echo 1600 | sudo tee brightness`，其中 `tee`：将输入内容写入一个文件，同时也会在输出流中将输入流输出。
 
-  - `xdg-open <file>` 以一个适当的打开方式打开文件（在 Linux 中）
+- `xdg-open <file>` 以一个适当的打开方式打开文件（在 Linux 中）
 
 
 
-  课后练习：
+课后练习：
 
-  - `!` 要用单引号输入。
+- `!` 要用单引号输入。
 
-  - `chmod` 命令：https://zhuanlan.zhihu.com/p/102148141
+- `chmod` 命令：https://zhuanlan.zhihu.com/p/102148141
 
-  - 加载器：加载程序的步骤包括，读取可执行文件，将可执行文件的内容写入存储器中，之后开展其他所需的准备工作，准备让可执行文件运行。当加载完成之后，操作系统会将控制权交给加载的代码，让它开始运行。
+- 加载器：加载程序的步骤包括，读取可执行文件，将可执行文件的内容写入存储器中，之后开展其他所需的准备工作，准备让可执行文件运行。当加载完成之后，操作系统会将控制权交给加载的代码，让它开始运行。
 
-  - 有关 “Shebang”：（https://en.wikipedia.org/wiki/Shebang_(Unix)）
+- 有关 “Shebang”：（https://en.wikipedia.org/wiki/Shebang_(Unix)）
 
     如以指令 `\#!/bin/sh` 开头的文件在执行时会实际调用*/bin/sh*程序。（`sh` 是程序，`semester` 是参数）
 
@@ -244,37 +244,37 @@ done
 - sort `ls` by recency: `ls -t`
 
 - Ex.2:
-  
-  ```shell
-  varName="Aloha"
-  echo "varName is not empty: the two constructs behave the same"
-  echo ${varName-Hello World}
-  echo ${varName:-Hello World}
-  echo ""
-  unset varName
-  echo "varName is unset: they still behave the same way"
-  echo ${varName-Hello World}
-  echo ${varName:-Hello World}
-  echo ""
-  varName=""
-  echo "varName is empty: this is where the two differs"
-  echo ${varName-Hello World}
-  echo ${varName:-Hello World}
-  echo ""
-  # Basically `:-` changes the values of the variable if it's empty or not set, and `:` changes it if it's not set.	
-  # use "" to escape the influence of `space`
-  ```
-  
-  - **What is `&&` in Bash?** In Bash — and many other programming languages — `&&` means “AND”. And in command execution context like this, it means items to the left as well as right of `&&` should be run in sequence in this case.
-  
-    **What is `&` in Bash?** And a single `&` means that the preceding commands — to the immediate left of the `&` — should simply be run in the background.
-  
-  - **There is a problem in exercise 3 that why the other codes don't work except the `until` code?**
-  
+
+    ```shell
+    varName="Aloha"
+    echo "varName is not empty: the two constructs behave the same"
+    echo ${varName-Hello World}
+    echo ${varName:-Hello World}
+    echo ""
+    unset varName
+    echo "varName is unset: they still behave the same way"
+    echo ${varName-Hello World}
+    echo ${varName:-Hello World}
+    echo ""
+    varName=""
+    echo "varName is empty: this is where the two differs"
+    echo ${varName-Hello World}
+    echo ${varName:-Hello World}
+    echo ""
+    # Basically `:-` changes the values of the variable if it's empty or not set, and `:` changes it if it's not set.	
+    # use "" to escape the influence of `space`
+    ```
+
+    - **What is `&&` in Bash?** In Bash — and many other programming languages — `&&` means “AND”. And in command execution context like this, it means items to the left as well as right of `&&` should be run in sequence in this case.
+
+        **What is `&` in Bash?** And a single `&` means that the preceding commands — to the immediate left of the `&` — should simply be run in the background.
+
+    - **There is a problem in exercise 3 that why the other codes don't work except the `until` code?**
+
 - ```bash
-  $ zip [options] <zipfile> <file1> <file2> <...> # compress files
-  $ 7z x <zipfile> # extract zipfile
-  ```
+    $ zip [options] <zipfile> <file1> <file2> <...> # compress files
+    $ 7z x <zipfile> # extract zipfile
+    ```
 
 - `xargs -d 'char'`: let the input become the arguments of the command and separate the inputs by the char(such as `\n`)
 
@@ -355,15 +355,15 @@ done
 
 - `\b`: matches the boundary between a word and a non-word character.(It matches at a position that is called a “word boundary”. This match is zero-length.)
 
-  There are three different positions that qualify as word boundaries:
+    There are three different positions that qualify as word boundaries:
 
-  - Before the first character in the string, if the first character is a word character.
-  - After the last character in the string, if the last character is a word character.
-  - Between two characters in the string, where one is a word character and the other is not a word character.
+    - Before the first character in the string, if the first character is a word character.
+    - After the last character in the string, if the last character is a word character.
+    - Between two characters in the string, where one is a word character and the other is not a word character.
 
-  So, you can capture an entire word by `\w+\b`.
+    So, you can capture an entire word by `\w+\b`.
 
-  I think it is used to capture words.
+    I think it is used to capture words.
 
 ```shell
 > echo "aba" | sed -E 's/[ab]//'
@@ -409,97 +409,98 @@ However, if the user name is the entire line of the log, then it will cause prob
 
 - `<file> | sort | uniq`: sort the lines of the file and make the lines unique.
 
-  - `uniq -c`: count the number of appearance of the same line.
+    - `uniq -c`: count the number of appearance of the same line.
 
-  - `sort -n`: sort by number; `sort -k`: select a white space separated column to do sorting
+    - `sort -n`: sort by number; `sort -k`: select a white space separated column to do sorting
 
-    `sort -nk1,1`: sort start at the first column and end at the first column.
+        `sort -nk1,1`: sort start at the first column and end at the first column.
 
-    In this case, we don't need the option `-nk1,1` , we can simply sort by the whole line because the number happens to be at the first.
+        In this case, we don't need the option `-nk1,1` , we can simply sort by the whole line because the number happens to be at the first.
 
-  - `tail -n5`: to print last 5 lines; `head -n5`: to print the first 5 lines.
+    - `tail -n5`: to print last 5 lines; `head -n5`: to print the first 5 lines.
 
 - `awk`: a column-based stream processor.
 
-  - `awk '$1 == 1 && $2 ~ /^c.*e$/ { print $0 }'`: `$1` represents the first column, `$0` represents the whole line. It will print every line whose user name starts with `c` and ends with `e`.
+    - `awk '$1 == 1 && $2 ~ /^c.*e$/ { print $0 }'`: `$1` represents the first column, `$0` represents the whole line. It will print every line whose user name starts with `c` and ends with `e`.
 
-  - `{}` is the command that you want to execute when the condition in front of it matched.
+    - `{}` is the command that you want to execute when the condition in front of it matched.
 
-    ```shell
-    > awk'BEGIN { rows = 0 }
-      $1 == 1 && $2 ~ /^c[^ ]*e$/ { rows += $1 }
-      END { print rows }'
-    ```
+        ```shell
+        > awk'BEGIN { rows = 0 }
+          $1 == 1 && $2 ~ /^c[^ ]*e$/ { rows += $1 }
+          END { print rows }'
+        ```
 
-    In the above case, `BEGIN` represents the function starts processing, when the functions starts, the variable `rows` will be set to `0`. 
+        In the above case, `BEGIN` represents the function starts processing, when the functions starts, the variable `rows` will be set to `0`. 
 
-    The usage of the command is to count the line whose user name starts with `c` and ends with `e`.
+        The usage of the command is to count the line whose user name starts with `c` and ends with `e`.
 
-  - `awk '$1 == 1 && $2 ~ /^c.*e$/ { print $0 } | paste -sd,`: write the output in one line and use `,` to separate each word.
+    - `awk '$1 == 1 && $2 ~ /^c.*e$/ { print $0 } | paste -sd,`: write the output in one line and use `,` to separate each word.
 
 - `bc`: a simple command-line calculator.
 
-  `bc -l <file>`: If the file is a simple expression, and by `bc` function, it will help to work out the answer.
+    `bc -l <file>`: If the file is a simple expression, and by `bc` function, it will help to work out the answer.
 
-  ```shell
-  awk '$1 > 1 {print $1}' | paste -sd+ | bc -l
-  ```
+    ```shell
+    awk '$1 > 1 {print $1}' | paste -sd+ | bc -l
+    ```
 
 - `xargs`: takes the lines of the input and turns them into arguments.
 
-  ```shell
-  rustup toolchain list | grep nightly | grep -vE "nightly-x86" | sed 's/-x86.*//' | xargs rustup toolchain uninstall
-  ```
+    ```shell
+    rustup toolchain list | grep nightly | grep -vE "nightly-x86" | sed 's/-x86.*//' | xargs rustup toolchain uninstall
+    ```
 
-  `xargs` will let the stdin be the argument of the function `rustup toolchain uninstall`
+    `xargs` will let the stdin be the argument of the function `rustup toolchain uninstall`
 
 ### Exercises
 
 1. [regex exercises](https://regexone.com/lesson)
 
 2. `$ cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | wc -l`
-   
-      - 大小写转换：`tr "[:upper:]" "[:lower:]"`(the same as `tr A-Z a-z`)
 
-      - `^([^a]*a){3}.*[^'s]$`：查找一个以 a 结尾的字符串三次
+    - 大小写转换：`tr "[:upper:]" "[:lower:]"`(the same as `tr A-Z a-z`)
 
-      - `grep -v "\'s$"`: 匹配结尾为’s 的结果，然后取反。 借助 `grep -v`.
+    - `^([^a]*a){3}.*[^'s]$`：查找一个以 a 结尾的字符串三次
 
-      - 这些单词中，出现频率前三的末尾两个字母是什么？ `sed`的 `y`命令，或者 `tr` 程序也许可以帮你解决大小写的问题。
+    - `grep -v "\'s$"`: 匹配结尾为’s 的结果，然后取反。 借助 `grep -v`.
 
-   ```shell
-   $ cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq -c | sort | tail -n3
-    # 53 as
-    # 64 ns
-    # 102 an
-   ```
-   
-   - 共存在多少种词尾两字母组合？
-   
-   ```shell
-   $ cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq | wc -l
-   ```
-   
-   - 还有一个很有挑战性的问题：哪个组合从未出现过？ 为了得到没出现的组合，首先我们要生成一个包含全部组合的列表，然后再使用上面得到的出现的组合，比较二者不同即可。
-   
-   ```shell
-   #!/bin/bash
-   for i in {a..z};do
-   	for j in {a..z};do
-     	 echo  "$i$j"
-   	done
-   done
-   # all.sh
-   
-   ./all.sh > all.txt
-   cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq > occurance.txt
-   diff --unchanged-group-format='' <(cat occurance.txt) <(cat all.txt) | wc -l
-   ```
-   
-   - `--unchanged-group-format=''`用于将两个文件中相同的内容设置为空字符串，剩下的内容就是差异的部分。
+    - 这些单词中，出现频率前三的末尾两个字母是什么？ `sed`的 `y`命令，或者 `tr` 程序也许可以帮你解决大小写的问题。
+
+    ```shell
+    $ cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq -c | sort | tail -n3
+     # 53 as
+     # 64 ns
+     # 102 an
+    ```
+
+    - 共存在多少种词尾两字母组合？
+
+    ```shell
+    $ cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq | wc -l
+    ```
+
+    - 还有一个很有挑战性的问题：哪个组合从未出现过？ 为了得到没出现的组合，首先我们要生成一个包含全部组合的列表，然后再使用上面得到的出现的组合，比较二者不同即可。
+
+    ```shell
+    #!/bin/bash
+    for i in {a..z};do
+    	for j in {a..z};do
+      	 echo  "$i$j"
+    	done
+    done
+    # all.sh
+    
+    ./all.sh > all.txt
+    cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq > occurance.txt
+    diff --unchanged-group-format='' <(cat occurance.txt) <(cat all.txt) | wc -l
+    ```
+
+    - `--unchanged-group-format=''`用于将两个文件中相同的内容设置为空字符串，剩下的内容就是差异的部分。
+
 3. To do in-place substitution it is quite tempting to do something like `sed s/REGEX/SUBSTITUTION/ input.txt > input.txt`. However this is a bad idea, because in this command, it will clear `input.txt` first.
 
-   use: `sed -i.bak s/REGEX/SUBSTITUTION/ input.txt`, and the original file will be changed, and it will generate a `.bac` file to backup previous data.
+    use: `sed -i.bak s/REGEX/SUBSTITUTION/ input.txt`, and the original file will be changed, and it will generate a `.bac` file to backup previous data.
 
 4. skipped
 
@@ -507,53 +508,53 @@ However, if the user name is the entire line of the log, then it will cause prob
 
 6. Too hard! Copy the solution first.
 
-   在网上找一个类似 [这个](https://stats.wikimedia.org/EN/TablesWikipediaZZ.htm) 或者[这个](https://ucr.fbi.gov/crime-in-the-u.s/2016/crime-in-the-u.s.-2016/topic-pages/tables/table-1)的数据集。或者从[这里](https://www.springboard.com/blog/free-public-data-sets-data-science-project/)找一些。使用 `curl` 获取数据集并提取其中两列数据，如果您想要获取的是HTML数据，那么[`pup`](https://github.com/EricChiang/pup)可能会更有帮助。对于JSON类型的数据，可以试试[`jq`](https://stedolan.github.io/jq/)。请使用一条指令来找出其中一列的最大值和最小值，用另外一条指令计算两列之间差的总和。
+    在网上找一个类似 [这个](https://stats.wikimedia.org/EN/TablesWikipediaZZ.htm) 或者[这个](https://ucr.fbi.gov/crime-in-the-u.s/2016/crime-in-the-u.s.-2016/topic-pages/tables/table-1)的数据集。或者从[这里](https://www.springboard.com/blog/free-public-data-sets-data-science-project/)找一些。使用 `curl` 获取数据集并提取其中两列数据，如果您想要获取的是HTML数据，那么[`pup`](https://github.com/EricChiang/pup)可能会更有帮助。对于JSON类型的数据，可以试试[`jq`](https://stedolan.github.io/jq/)。请使用一条指令来找出其中一列的最大值和最小值，用另外一条指令计算两列之间差的总和。
 
-   ```shell
-   ~$ curl 'https://stats.wikimedia.org/EN/TablesWikipediaZZ.htm#wikipedians' \
-       |sed -n "/table1/,/<\/table>/p" \
-       |grep "<tr" | sed "1,12d"|head -n -3 \
-       |sed -E 's/(<[^>]*>)+/ /g' \
-       |sed 's/ &nbsp;/ -/g' \
-       |sed 's/&nbsp;//g' > data
-      
-   ~$ cat data # 处理后的数据为Jan2001截至Oct2018的
-   Oct2018 2642056 12641 70805 10498 48.9M - 6101 - - - - 10.3M - - - - - - 42.6M 
-   Sep2018 2629415 11171 66574 10004 48.7M - 6116 - - - - 10.1M - - - - - - 42.4M 
-   Aug2018 2618244 12058 68688 10640 48.5M - 6839 - - - - 10.2M - - - - - - 42.1M 
-   Jul2018 2606186 12026 68037 10305 48.3M - 6987 - - - - 9.5M - - - - - - 41.9M 
-   ...
-   Jan2001 7 7 9 - 31 12 1 8.6 1352 29% 10% 267 301kB 3.0k 15 - - 2 163 
-   ```
+    ```shell
+    ~$ curl 'https://stats.wikimedia.org/EN/TablesWikipediaZZ.htm#wikipedians' \
+        |sed -n "/table1/,/<\/table>/p" \
+        |grep "<tr" | sed "1,12d"|head -n -3 \
+        |sed -E 's/(<[^>]*>)+/ /g' \
+        |sed 's/ &nbsp;/ -/g' \
+        |sed 's/&nbsp;//g' > data
+       
+    ~$ cat data # 处理后的数据为Jan2001截至Oct2018的
+    Oct2018 2642056 12641 70805 10498 48.9M - 6101 - - - - 10.3M - - - - - - 42.6M 
+    Sep2018 2629415 11171 66574 10004 48.7M - 6116 - - - - 10.1M - - - - - - 42.4M 
+    Aug2018 2618244 12058 68688 10640 48.5M - 6839 - - - - 10.2M - - - - - - 42.1M 
+    Jul2018 2606186 12026 68037 10305 48.3M - 6987 - - - - 9.5M - - - - - - 41.9M 
+    ...
+    Jan2001 7 7 9 - 31 12 1 8.6 1352 29% 10% 267 301kB 3.0k 15 - - 2 163 
+    ```
 
-   命令说明（建议先查看网站的源码格式，更加容易理解下面的操作）
+    命令说明（建议先查看网站的源码格式，更加容易理解下面的操作）
 
-   - `|sed -n "/table1/,/<\/table>/p"`：观察网站的源代码，可以发现第一个表格的id为`table1`，该命令将截取匹配到的`table1`以及下一个`</table>`标签行之间的内容
+    - `|sed -n "/table1/,/<\/table>/p"`：观察网站的源代码，可以发现第一个表格的id为`table1`，该命令将截取匹配到的`table1`以及下一个`</table>`标签行之间的内容
 
-   - `|grep "<tr"`：html表格中，含有数据的行是以`<tr`开头，匹配这样的行
+    - `|grep "<tr"`：html表格中，含有数据的行是以`<tr`开头，匹配这样的行
 
-   - `|sed "1,12d"`：去掉前12行（包含表格的表头）
+    - `|sed "1,12d"`：去掉前12行（包含表格的表头）
 
-   - `|head -n -3`：去掉最后3行（包含非数据的内容）（注意：部分操作系统可能不支持该用法，最笨拙的替换实现方式是：`|sed "$d"|sed "$d"|sed "$d"`，即执行3次删除最后一行的操作）
+    - `|head -n -3`：去掉最后3行（包含非数据的内容）（注意：部分操作系统可能不支持该用法，最笨拙的替换实现方式是：`|sed "$d"|sed "$d"|sed "$d"`，即执行3次删除最后一行的操作）
 
-   - `|sed -E 's/(<[^>]*>)+/ /g'`：使用正则匹配，将所有相邻的多个html标签（格式行如`< tag >`）替换为空格
+    - `|sed -E 's/(<[^>]*>)+/ /g'`：使用正则匹配，将所有相邻的多个html标签（格式行如`< tag >`）替换为空格
 
-   - `|sed 's/  / -/g`：原表格中部分没有数据的单元格是以` `填充的，将其替换为` -`，避免在对数据操作时发生窜列的情况
+    - `|sed 's/  / -/g`：原表格中部分没有数据的单元格是以` `填充的，将其替换为` -`，避免在对数据操作时发生窜列的情况
 
-   - `|sed 's/ //g`：原表格中部分单元格内的空格也是用` `表示的，将其全部删除（不影响数据处理）
+    - `|sed 's/ //g`：原表格中部分单元格内的空格也是用` `表示的，将其全部删除（不影响数据处理）
 
-     ```shell
-     ~$ awk '{print $1,$4,$5}' data | sort --key=2n | head -n 1
-     Jan2001 9 -
-     # 从data中读取第一列（时间，用来定位后续结果）及第三、四列，并以第二行的数据以数字大小进行排序，然后显示最大值的结果；下一个命令显示最小值的结果
-     
-     ~$ awk '{print $1,$4,$5}' data | sort --key=2n | tail -n 1
-     Mar2007 91388 11506
-     
-     ~$ awk '{print $1,$4,$5}' data | awk '{print $2-$3}' | awk '{s+=$1} END {print s}'
-     10153001
-     # 使用第二列的数据减去第三列的数据后，将结果加总
-     ```
+        ```shell
+        ~$ awk '{print $1,$4,$5}' data | sort --key=2n | head -n 1
+        Jan2001 9 -
+        # 从data中读取第一列（时间，用来定位后续结果）及第三、四列，并以第二行的数据以数字大小进行排序，然后显示最大值的结果；下一个命令显示最小值的结果
+        
+        ~$ awk '{print $1,$4,$5}' data | sort --key=2n | tail -n 1
+        Mar2007 91388 11506
+        
+        ~$ awk '{print $1,$4,$5}' data | awk '{print $2-$3}' | awk '{s+=$1} END {print s}'
+        10153001
+        # 使用第二列的数据减去第三列的数据后，将结果加总
+        ```
 
 
 
@@ -565,54 +566,54 @@ However, if the user name is the entire line of the log, then it will cause prob
 
 - `nohup <command>` means you want to run a command to immune hangups.
 
-  - `&` means you want the run the process even it is hung up, you can do other things when the process is running.
+    - `&` means you want the run the process even it is hung up, you can do other things when the process is running.
 
-  - ` bg %<num>` means you want to continue specific process on the background.
-  - `fg %<num>` means you want to put the process on the background to the front ground.
+    - ` bg %<num>` means you want to continue specific process on the background.
+    - `fg %<num>` means you want to put the process on the background to the front ground.
 
-  ```shell
-  $ sleep 1000
-  ^Z
-  [1]  + 18653 suspended  sleep 1000
-  
-  $ nohup sleep 2000 &
-  [2] 18745
-  appending output to nohup.out
-  
-  $ jobs
-  [1]  + suspended  sleep 1000
-  [2]  - running    nohup sleep 2000
-  
-  $ bg %1
-  [1]  - 18653 continued  sleep 1000
-  
-  $ jobs
-  [1]  - running    sleep 1000
-  [2]  + running    nohup sleep 2000
-  
-  $ kill -STOP %1
-  [1]  + 18653 suspended (signal)  sleep 1000
-  
-  $ jobs
-  [1]  + suspended (signal)  sleep 1000
-  [2]  - running    nohup sleep 2000
-  
-  $ kill -SIGHUP %1
-  [1]  + 18653 hangup     sleep 1000
-  
-  $ jobs
-  [2]  + running    nohup sleep 2000
-  
-  $ kill -SIGHUP %2
-  
-  $ jobs
-  [2]  + running    nohup sleep 2000
-  
-  $ kill %2
-  [2]  + 18745 terminated  nohup sleep 2000
-  
-  $ jobs
-  ```
+    ```shell
+    $ sleep 1000
+    ^Z
+    [1]  + 18653 suspended  sleep 1000
+    
+    $ nohup sleep 2000 &
+    [2] 18745
+    appending output to nohup.out
+    
+    $ jobs
+    [1]  + suspended  sleep 1000
+    [2]  - running    nohup sleep 2000
+    
+    $ bg %1
+    [1]  - 18653 continued  sleep 1000
+    
+    $ jobs
+    [1]  - running    sleep 1000
+    [2]  + running    nohup sleep 2000
+    
+    $ kill -STOP %1
+    [1]  + 18653 suspended (signal)  sleep 1000
+    
+    $ jobs
+    [1]  + suspended (signal)  sleep 1000
+    [2]  - running    nohup sleep 2000
+    
+    $ kill -SIGHUP %1
+    [1]  + 18653 hangup     sleep 1000
+    
+    $ jobs
+    [2]  + running    nohup sleep 2000
+    
+    $ kill -SIGHUP %2
+    
+    $ jobs
+    [2]  + running    nohup sleep 2000
+    
+    $ kill %2
+    [2]  + 18745 terminated  nohup sleep 2000
+    
+    $ jobs
+    ```
 
 ### Terminal Multiplexer(tmux)
 
@@ -622,13 +623,13 @@ However, if the user name is the entire line of the log, then it will cause prob
 
 - The basic structure of tmux:
 
-  |--session
+    |--session
 
-    |--windows
+      |--windows
 
-  ​    |--panes
+    ​    |--panes
 
-  - ​	"windows" is like the "tabs" in chrome.
+    - ​	"windows" is like the "tabs" in chrome.
 
 - When we write `tmux` in the terminal, then it will start another process separated from the original process.
 
@@ -650,10 +651,10 @@ Note that aliases do not persist shell sessions by default. To make an alias per
 
 - symlinks: tell the system that `~/dotfiles/.zshrc` is actually `~/.zshrc` it wants, and the folder can be easily backed up in github.
 
-  ```shell
-  ln -s path/file symlink
-  # symlink is ".zshrc"
-  ```
+    ```shell
+    ln -s path/file symlink
+    # symlink is ".zshrc"
+    ```
 
 ### Remote Machines
 
@@ -661,10 +662,10 @@ Note that aliases do not persist shell sessions by default. To make an alias per
 - `ssh` is like a safe shell, which is gonna take responsibility for reaching whoever we want.
 - `ssh <username@ip> <command>`: to do remote commands on another computer.
 - How to avoid typing the password every time we use `ssh` ? ------- `ssh keys` (public key encryption)
-  - give the server the public key.
-  - the system will use the private key to prove your identity.
-  - generate:`ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519`
-  - If you have ever configured pushing to GitHub using SSH keys, then you have probably done the steps outlined [here](https://help.github.com/articles/connecting-to-github-with-ssh/) and have a valid key pair already. To check if you have a passphrase and validate it you can run `ssh-keygen -y -f /path/to/key`.
+    - give the server the public key.
+    - the system will use the private key to prove your identity.
+    - generate:`ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519`
+    - If you have ever configured pushing to GitHub using SSH keys, then you have probably done the steps outlined [here](https://help.github.com/articles/connecting-to-github-with-ssh/) and have a valid key pair already. To check if you have a passphrase and validate it you can run `ssh-keygen -y -f /path/to/key`.
 - `scp <file> <username@ip:path>`: copy the file to the remote machine.
 - [`rsync`](https://www.man7.org/linux/man-pages/man1/rsync.1.html) improves upon `scp` by detecting identical files in local and remote, and preventing copying them again.
 - you can edit `.ssh/config` to avoid input a long command every time.
@@ -691,8 +692,8 @@ objects=map<string,object>
 ```
 
 - The hash function `SHA-1`: a 160-bit hash 
-  - hash the object to 40 chars of `hex`
-  - construct `map<string, string>`, map the address to a human-readable name, you can recognize the name as a `pointer` variable.
+    - hash the object to 40 chars of `hex`
+    - construct `map<string, string>`, map the address to a human-readable name, you can recognize the name as a `pointer` variable.
 - The nodes of the tree can't be deleted but can be added.
 - `ls -a`: see the hidden files and folders with the prefix `.`
 
@@ -865,7 +866,7 @@ A hash function has the following properties:
 
 - Git: In Git, each object will use `SHA-1` function to get their address, and these address will point to the files, but you can not simply restore the object by the address.
 
-  Instead of managing objects, managing addresses will be much easier.
+    Instead of managing objects, managing addresses will be much easier.
 
 - A short summary of the contents of a file. Software can often be downloaded from (potentially less trustworthy) mirrors, e.g. Linux ISOs, and it would be nice to not have to trust them. The official sites usually post hashes alongside the download links (that point to third-party mirrors), so that the hash can be checked after downloading a file.
 
