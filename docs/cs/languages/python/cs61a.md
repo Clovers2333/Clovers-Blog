@@ -151,6 +151,70 @@ triple = trace1(triple)
 
 
 
+### Lecture 11
+
+#### 运用函数封装结构体
+
+- 结构体本身的所有变量用一个 `list` 保存
+
+- 通过 `selection` 函数取出 `list` 中的值，通过对不同 `selection` 函数的命名来实现抽象化
+
+- 使用 higher-order function 使结构体更具抽象化：
+
+    ```python
+    def rational(n, d):
+        def select(name):
+            if name == 'n':
+                return n
+            elif name =='d':
+                return d
+        return select
+    
+    def numer(x):
+        return x('n')
+    def denom(x):
+        return x('d')
+    ```
+
+#### Dictionary
+
+```python
+>>> d = {'I': 1, 'V': 5, 'X': 10}
+>>> d['I']
+>>> d.keys() # 索引列表
+>>> d.values() # 值列表
+>>> d.items() # 返回 pair 列表
+>>> 'X' in d # output: True
+>>> d.get('X', 0) # 如果 X 有值，那么就返回值；否则返回后面的 default 值
+>>> {x: x*x for x in range(1, 10)} # 一下定义了十个值
+```
+
+
+
+### Lecture 15
+
+#### Unicode Standard
+
+- 109000 characters
+- 93 scripts(organized)（字母表）
+- Enumeration of character properties（字母属性的枚举）
+- Support bidirectional display order（有些文字是从右往左写）
+- A canonical name for every character（每个字母有规范的名称）
+
+```python
+>>> from unicodedata import name, lookup
+>>> name("A")
+'LATIN CAPITAL LETTER A'
+>>> lookup("LATIN CAPITAL LETTER ")
+'A'
+>>> lookup("BABY").encode()
+# 显示这个符号的十六进制编码
+```
+
+
+
+
+
 ## Homework
 
 ### HW01
@@ -188,44 +252,6 @@ def make_anonymous_factorial():
     else:
       return mul(k, f(f, sub(k, 1)))
   return func1(func3)
-```
-
-### Lecture 11
-
-#### 运用函数封装结构体
-
-- 结构体本身的所有变量用一个 `list` 保存
-
-- 通过 `selection` 函数取出 `list` 中的值，通过对不同 `selection` 函数的命名来实现抽象化
-
-- 使用 higher-order function 使结构体更具抽象化：
-
-    ```python
-    def rational(n, d):
-        def select(name):
-            if name == 'n':
-                return n
-            elif name =='d':
-                return d
-        return select
-    
-    def numer(x):
-        return x('n')
-    def denom(x):
-        return x('d')
-    ```
-
-#### Dictionary
-
-```python
->>> d = {'I': 1, 'V': 5, 'X': 10}
->>> d['I']
->>> d.keys() # 索引列表
->>> d.values() # 值列表
->>> d.items() # 返回 pair 列表
->>> 'X' in d # output: True
->>> d.get('X', 0) # 如果 X 有值，那么就返回值；否则返回后面的 default 值
->>> {x: x*x for x in range(1, 10)} # 一下定义了十个值
 ```
 
 
