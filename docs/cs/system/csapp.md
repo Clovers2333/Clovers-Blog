@@ -246,3 +246,86 @@ $$
 ![](https://github.com/Clovers2333/picx-images-hosting/raw/master/FPexercises.4uaosxtj89.webp)
 
 - 第二、三、五个、倒数第二、三、四个正确，其余错误。
+
+
+
+## Lecture 5 - Machine-Level Programming
+
+### Definitions
+
+- Architecture (also ISA: instruction set architecture)：指令集，编译器所编译的目标。
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Machine_Programming_Definitions.7p3d8s7et6.webp)
+
+- 上图介绍了在汇编语言的视角下，计算机一些最基本的组件。
+    - Register file 即寄存器，暂存数据和地址（有限容量的高速存储部件，cache 是扩充，寄存器更快）（并不是按照数字下标索引，而是有特定的名字）。
+    - Condition codes 用来保存最近几次运算的结果，用于条件语句
+    - 不可见的 Memory 被视为一大块数组，为虚拟内存。
+
+### Turning C into Object Code
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Turning_C_to_ObjectCode.2krojil1vi.webp)
+
+- 依次进行的操作为：预处理（展开头文件、替换操作符、展开宏定义）、编译、汇编、链接。
+- 以下是一个具体的例子：
+
+```c
+long plus(long x, long y);
+void sumstore(long x, long y, long *dest){
+    long t = plus(x, y);
+    *dest = t;
+}
+```
+
+```assembly
+sumstore:
+	pushq	%rbx
+	movq	%rdx, %rbx
+	call	plus
+	movq	%rax, (%rbx)
+	popq	%rbx
+	ret
+```
+
+- `%<name>`：寄存器的名称。
+- `pushq`：push somthing to the stack.
+- `movq`：move sth. from one place to another.
+- `call`：call a procedure.
+- `ret`：return from a specific function.
+- **Each line written in text will turn into an instruction in the object code.**
+
+**以下是对于这个例子中赋值语句的解释：**
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Assembly_Assigning_Exanple.ibvvim1by.webp)
+
+- 用一个寄存器 `rbx` 保存 dest 的地址
+
+- `mov` 语句的意思：将 `rax` 寄存器中的数值，移到 `rbx` 寄存器上的地址所指向的位置。
+
+    （如果没有括号，那就是简单地把 `rax` 上的数字移到 `rbx` 上保存）
+
+- 汇编上的每个 text，实则都有一个编码，所以在汇编过程中，会把一条汇编语句转成一个二进制的 instruction，一般在 1~14 bytes（？）
+
+    （汇编语言：低级语言；二进制：机器语言）
+
+### How to Get an Assembly Code
+
+- 汇编语言的文件后缀：`.s`；反汇编语言的后缀：`.d`
+
+- 把 C 语言编译成汇编语言的命令：`gcc -Og -S *.c`
+
+    当你调用 gcc 时，实际上你调用的不仅仅是一个程序，而是一整个程序序列，已完成整个编译过程。
+
+    这里的两个编译选项，`-S` 是停止，只进行编译成汇编的那步；`-Og` 是一种优化的规范，使得汇编代码更好读懂（g：调试级别；如果采用 O1, O2 这种优化效率，那么更加难读懂）。
+
+### Assembly Characteristics: Data Types
+
+- Integer data of 1, 2, 4 or 8 bytes.
+    - 地址或指针都以整型存储
+- Floating point data of 4, 8 or 10 bytes.（表示方法和 C 语言大相径庭） 
+- No aggregate types（较大型的数据类型）such as arrays or structures.
+    - Just contiguously allocated bytes in memory.
+    - Built-up in more superior languages.
+
+
+
