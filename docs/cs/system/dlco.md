@@ -97,21 +97,21 @@ CMOS 非门、与非门、或非门都采用较少的晶体管电路来构造，
 
 - 记半加器当前位结果为 $F$，向高位的进位为 $Cout$​，则：
   
-    $$
-    \begin{aligned}
-    F&=A\oplus B \\
-    Cout &= A\cdot B
-    \end{aligned}
-    $$
+$$
+\begin{aligned}
+&F=A\oplus B \\
+&Cout = A\cdot B
+\end{aligned}
+$$
 
 - 在半加器基础上考虑低位进位称为全加器，记低位进位为 $Cin$，则：
   
-    $$
-    \begin{aligned}
-    F&=A\oplus B\oplus Cin \\
-    Cout &= A\cdot B + A\cdot Cin + B \cdot Cin
-    \end{aligned}
-    $$
+$$
+\begin{aligned}
+F&=A\oplus B\oplus Cin \\
+Cout &= A\cdot B + A\cdot Cin + B \cdot Cin
+\end{aligned}
+$$
 
 ### 3.3.1 传输延迟和最小延迟
 
