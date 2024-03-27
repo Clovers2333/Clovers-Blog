@@ -113,3 +113,100 @@ for(expr1; expr2; expr3) statement
 ```
 
 语法和 C 语言相同，从硬件的角度来理解，不应该理解成电路在时间上重复，而应该理解成在空间上重复构建多个电路。
+
+## 高级语法
+
+### `generate` 语句
+
+`generate ... endgenerate` 语句块用于硬件代码生成。
+
+```verilog
+    wire [3:0] a [3:0];
+    wire [3:0] b [3:0];
+
+    assign b[0] = a[0];
+    assign b[1] = a[1];
+    assign b[2] = a[2];
+    assign b[3] = a[3];
+//-----------------------------
+
+    wire [3:0] a [3:0];
+    wire [3:0] b [3:0];
+
+    genvar i;
+    generate
+        for(i=0;i<4;i=i+1)begin
+            assign b[i] = a[i];
+        end
+    endgenerate
+```
+
+`genvar i` 定义了一个仅用于 `generate` 语句内部的变量 `i`，这个变量仅仅是一个用于代码生成的变量，它不会生成有效的电路，因而也不会提高生成硬件的复杂度。
+
+一个 `genvar` 可以在多个 `generate` 块中使用。
+
+可以在 `generate` 块内部使用 `for` 循环对 `genvar` 进行赋值遍历，这里的语法和 C 语言的 for 循环语法在语法和语义上是一致的，最大的区别可能是 `genvar` 的递增仅支持 `i=i+1`，而不支持 `i+=1` 和 `i++`.
+
+### `integer` 变量
+
+`integer` 变量是 32 位的变量，可以认为它是一个 32 位 bit 宽的 `reg`
+
+除此之外还有 `short`、`longint` 分别是 16 位变量和 64 位变量。
+
+```verilog
+    integer i;
+    initial begin
+        ...
+        for(i=0;i<8;i=i+1)begin
+            data=i[3:0];
+            #5;
+        end
+        ...
+    end
+```
+
+ `initial` 块的 `for` 循环语法不同于 `generate` 块，它使用 `integer` 得到变量而不是 `genvar` 变量。
+
+`initial` 块的 `for` 循环和 `generate` 的 `for` 循环在语法上是保持一致的，但是语义上有细微区别：generate 的 for 循环生成的语句用于电路描述，相互之间是**空间并列关系**；`initial` 的 `for` 循环生成的语句用于仿真激励，依次之间是由激励的**时间先后关系**的。
+
+### 参数化编程
+
+```verilog
+    `define LEN 4
+    wire [3:0] a [`LEN-1:0];
+    wire [3:0] b [`LEN-1:0];
+
+    genvar i;
+    generate
+        for(i=0;i<`LEN;i=i+1)begin
+            assign b[i] = a[i];
+        end
+    endgenerate
+```
+
+```verilog
+    localparam LEN=4; //相当于 const
+    wire [3:0] a [LEN-1:0];
+    wire [3:0] b [LEN-1:0];
+
+    genvar i;
+    generate
+        for(i=0;i<LEN;i=i+1)begin
+            assign b[i] = a[i];
+        end
+    endgenerate
+```
+
+假设我们将上面的二维数组赋值封装为一个模块 `dummy`。如果我们希望二维数组宽度为 4，则可以将 `LEN` 修改为 4；如果我们希望二维数组宽度为 5，则可以将 `LEN` 修改为 5，那么这个时候我们就可以在封装模块的时候定义一个 `parameter`.
+
+```verilog
+module dummy #(parameter LEN = 4) (
+    input ...
+    output ...
+);
+```
+
+## 其它语法
+
+`$random()`：提供宽度为 32 位的随机数。
+
