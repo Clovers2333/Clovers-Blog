@@ -10,7 +10,7 @@
 
 - 上图介绍了在汇编语言的视角下，计算机一些最基本的组件。
     - Register file 即寄存器，暂存数据和地址（有限容量的高速存储部件，cache 是扩充，寄存器更快）（并不是按照数字下标索引，而是有特定的名字）。
-    - Condition codes 用来保存最近几次运算的结果，用于条件语句
+    - Condition codes 用来保存最近几次运算的结果，用于条件语句。
     - 不可见的 Memory 被视为一大块数组，为虚拟内存。
 
 ### Turning C into Assembly Code
@@ -49,7 +49,7 @@ sumstore:
 
 ![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Assembly_Assigning_Exanple.ibvvim1by.webp)
 
-- 用一个寄存器 `rbx` 保存 dest 的地址
+- 用一个寄存器 `rbx` 保存 dest 的地址。
 
 - `mov` 语句的意思：将 `rax` 寄存器中的数值，移到 `rbx` 寄存器上的地址所指向的位置。
 
