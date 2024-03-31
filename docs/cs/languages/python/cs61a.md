@@ -213,6 +213,121 @@ triple = trace1(triple)
 
 
 
+### Lecture 17 - Iterator
+
+> 感觉 python 的指针有点别扭（？）感觉在输出表示的方式上会不一样，但在各种函数传参的时候可以和数组混着用（？）
+
+```python
+>>> s = [1, 2, 3, 4, 5]
+>>> t = iter(s) # s 的 begin 指针
+>>> next(t)
+1
+>>> list(t)
+[2, 3, 4, 5]
+>>> next(t)
+error
+
+>>> d = {'one': 1, 'two': 2} # 对于 dictionary 的指针顺序，取决于 python 的版本。
+>>> t = iter(d)
+>>> next(t) # 注意！如果在指针赋值之后 d 被改过了，那么地址会变，再次解引用指针会报错
+'one'
+>>> next(t)
+'two'
+>>> next(t)
+error
+
+>>> r = range(3, 6)
+>>> r
+range(3, 6)
+>>> list(r)
+[3, 4, 5]
+>>> ri = iter(r)
+>>> next(ri)
+3
+>>> for i in ri: print(i, end=" ")
+4 5
+```
+
+- `reverse(list)`：翻转数组，返回指针（套 `list(reverse(list))` 才又变成数组）
+
+#### Generator
+
+```python
+def f(x):
+    yield x
+    yield -x
+>>> t = f(3) # 返回指针
+>>> next(t)
+3
+>>> next(t)
+-3
+
+def a_then_b(a, b):
+    yield from a
+    yield from b
+>>> list(a_then_b(a, b))
+
+# 用 `yield` 实现输出所有子串：
+def prefiexs(s):
+    if s:
+        yield from prefiexs(s[:-1])
+        yield s
+def substrings(s):
+    if s:
+        yield from prefixes(s)
+        yield from substrings(s[1:])
+```
+
+
+
+### Lecture 18 - Objects
+
+- 在 `class` 下定义各种成员变量、函数。
+
+- 构造函数：
+
+    ```python    
+    class A:
+        def __init__(self, args...):
+            ...
+    >>> a = A(args...)
+    ```
+
+    后面的 `args` 是定义的时候传入的参数。
+
+- 自加函数：
+
+    ```python
+    def add(self, x):
+        self.value += x
+    >>> a.add(x)
+    # 与 A.add(a, x) deng'jia
+    ```
+
+- 查询成员：
+
+    ```python
+    >>> a = <name>(args...)
+    >>> getattr(a, arg1) # 查询 a 中 arg1 的值
+    >>> hasattr(a, arg) # 查询 a 中是否有 arg 这个成员
+    ```
+
+- `Object + Function = Bound Method`
+
+    ```python
+    class A:
+        ...
+        def func1():
+            ...
+    >>> a = A(...)
+    >>> type(A.func1)
+    <class 'function'>
+    >>> type(a.func1)
+    <class 'method'>
+    ```
+
+    
+
 
 
 ## Homework
