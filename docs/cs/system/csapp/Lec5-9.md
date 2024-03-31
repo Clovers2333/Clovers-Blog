@@ -1,6 +1,6 @@
 # Machine-Level Programming
 
-## Lecture 5
+## Lecture 5 - Overview & Moving Operations
 
 ### Definitions
 
@@ -144,3 +144,53 @@ sumstore:
 - Example:
 
 ![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Assembly_Arithmetic_Example.6bgubp9csc.webp)
+
+
+
+## Lecture 6 - Condition Codes
+
+### Implicit Setting
+
+- CF：进位标志（对于 unsigned）
+- SF：正负标志（若为负数则设置为 1）
+- ZF：是否为 0
+- OF：是否溢出
+
+例如在普通进行加法的时候，这四个 flag 就会隐式设置：
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Condition_Codes_AddSetting.5mnkt0fv9v.webp)
+
+注意！`leaq` 操作时不会设置。
+
+对于 Compare/Test 操作，这四个符号相当于是在对于 `a-b` 作判断。
+
+- `comq b, a` like computing `a-b` without setting destination.
+- `testq b, a` like computing `a&b` without setting destination（可以 `testq a, a` 来判断 a 的正负性）
+
+**以上两个操作在机器代码中编写参数的方式与我们正常所期望的相反！**
+
+### SetX Instructions
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/SetX_Instructions.3nre2p1vgn.webp)
+
+以上这些 Instruction 都是基于这 4 个 Flag 的组合。
+
+**Example:**
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Condition_Code_Example1.7smzettn7u.webp)
+
+- `setg %al` 表示将 Flag 组合运算的值赋值到 `%al` 上。
+- `movzbl` 表示低位扩展，高位补 0（`b`: Byte (8 bits); `w`: word (16 bits); `l`: long (32 bits) ）
+- 然后第三行的 `Dest` 设置为 32 位的 `%eax`，是因为对于一个 64 位寄存器只赋值其前 32 位，高位会自动补上 0.
+
+### Jumping - Branches
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/JX_Instructions.9rj656beq1.webp)
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Conditional_Branch_Example.70a3x3yxdv.webp)
+
+（类似于 goto？）
+
+事实上，gcc 在将上述 source code 转成汇编时，并不会右边的汇编代码，如果你不添加特定的编译指令的话，他会进行优化——conditional move.
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Conditional_Moves.7ljrjfzhbx.webp)
