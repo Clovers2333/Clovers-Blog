@@ -155,7 +155,7 @@ sumstore:
 
 
 
-## Lecture 6 
+## Lecture 6 - Condition Codes & Loops
 
 ### Condition Codes
 
