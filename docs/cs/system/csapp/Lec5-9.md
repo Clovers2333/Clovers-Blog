@@ -96,13 +96,21 @@ sumstore:
 
 - `movq <source>, <dest>`.
 
+    ```assembly
+    movabsq $0xffffffffffffffff, %rax
+    movb $0, %al  # rax = 0xffffffffffffff00
+    movw $0, %ax  # rax = 0xffffffffffff0000
+    movl $0, %rax # rax = 0xffffffff00000000
+    movl $0, %eax # rax = 0x0000000000000000
+    ```
+
 #### Operand Types
 
 - Immediate：Constant integer data.（`$0x4, $-147`）
 - Register: One of 16 integer registers. (`%rsp` is reserved)
 - Memory: 8 consecutive bytes of memory at address given by register.( `(%rax)` )
 
-#### `movq` Operand Combinations
+#### `mov` Operand Combinations
 
 - 看上去三种数据类型总共有九种组合方式，但其实只有五种：`Imm` 作为常数不可能成为 `dest`；`Mem-Mem` 的操作也会被分解成 `Mem-Reg-Mem`.
 - `movq (%rax) %rbx`：从内存中取一个值，从内存中读取它并将其复制到寄存器中。（`%rax` 本身是一个数字，用数字表示地址；但加括号以后就变成了地址所指的值，相当于 C 语言中的解引用 `*`）
@@ -147,9 +155,11 @@ sumstore:
 
 
 
-## Lecture 6 - Condition Codes
+## Lecture 6 
 
-### Implicit Setting
+### Condition Codes
+
+#### Implicit Setting
 
 - CF：进位标志（对于 unsigned）
 - SF：正负标志（若为负数则设置为 1）
@@ -164,12 +174,12 @@ sumstore:
 
 对于 Compare/Test 操作，这四个符号相当于是在对于 `a-b` 作判断。
 
-- `comq b, a` like computing `a-b` without setting destination.
+- `cmpq b, a` like computing `a-b` without setting destination.
 - `testq b, a` like computing `a&b` without setting destination（可以 `testq a, a` 来判断 a 的正负性）
 
 **以上两个操作在机器代码中编写参数的方式与我们正常所期望的相反！**
 
-### SetX Instructions
+#### SetX Instructions
 
 ![](https://github.com/Clovers2333/picx-images-hosting/raw/master/SetX_Instructions.3nre2p1vgn.webp)
 
@@ -183,7 +193,7 @@ sumstore:
 - `movzbl` 表示低位扩展，高位补 0（`b`: Byte (8 bits); `w`: word (16 bits); `l`: long (32 bits) ）
 - 然后第三行的 `Dest` 设置为 32 位的 `%eax`，是因为对于一个 64 位寄存器只赋值其前 32 位，高位会自动补上 0.
 
-### Jumping - Branches
+#### Jumping - Branches
 
 ![](https://github.com/Clovers2333/picx-images-hosting/raw/master/JX_Instructions.9rj656beq1.webp)
 
@@ -194,3 +204,86 @@ sumstore:
 事实上，gcc 在将上述 source code 转成汇编时，并不会右边的汇编代码，如果你不添加特定的编译指令的话，他会进行优化——conditional move.
 
 ![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Conditional_Moves.7ljrjfzhbx.webp)
+
+#### Switch Statement
+
+- 不同于我们之前所想的，丢入一个 x，程序会对每一个 case 进行检索，时间复杂度 $O(Case)$；事实上，在编译过程中会对每一种 case 进行地址索引，通过空间换时间的方式来实现 $O(1)$ 锁定 case.
+
+- 对于 default 的情况，编译器会比较聪明，在编译的时候也会进行很多优化，例如 case 有 `x = 1,2,4,5` ，那么就会在开头用无符号大小判断一下 `x` 是不是 `> 5`，如果是直接进入 `default`（也同时干掉了负数），然后对 `0, 1, 2, 3, 4, 5` 进行索引（0, 3 索引到 `default` ）
+
+- 更聪明的是，如果你的 case 是负数，它会通过 add bias 的等方式来使你的最小值为 0.
+
+- 更更聪明的是，如果 case 值太过分散，那么它会采用 BST 或者直接改成 if-else，来实现时空综合效率的最大化。
+
+    （CMU 的学生把我想到的 Corner Cases 全问到了hhhh）
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/switch_statement_example.1e8dksed0y.webp)
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Jump_Table.9nzk90w228.webp)
+
+- Direct Jumping: `jmp .L8`（内存都是在的，也可以直接编号访问，但能拿来运算处理的只有寄存器（？））
+
+- Indirect Jumping: `jmp *.L4(, %rdi, 8)`
+
+    - Start of the table: `.L4`
+    - Addresses are 8 bytes
+    - Fetch target by effective Address `.L4 + x*8 (0 <= x <= 6)`
+
+    （Jump Table 中保存各个 case 的 label（其实就是该 case 地址的别名），表头+一定字节的地址索引到具体的 case label，然后再 Jump 到那个 label 运行 case） 
+
+- Fall Through 并不是编译器不够聪明，而是设计者就想给你这么一种选项（其实个人感觉这是 C 语言设计比较反人类的一点）
+
+- 如果先前赋值的 `w` 仅在 case 块中用到，为了节省时间，会在要用到这个赋值的块中才加这句话。
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/switch_code_block1.67x8h02b2q.webp)
+
+所以虽然在个人在写 Source Code 的时候很抵触 case 语法，但其实作者在编写过程中还是花了一定心思的，它的底层也是值得去探究的。
+
+**Bad Cases for conditional move:**
+
+```c
+val = Test(x) ? f1(x) : f2(x);
+val = p ? *p : 0;
+val = x > 0 ? x*=7 : x+=3;
+```
+
+- 慎用三目运算符，因为两个结果都会被计算。
+- 可能会导致运算时间过长、边界报错、有 side-effect 等问题。
+
+### Loops
+
+#### Do-While Loop
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/do_while_loop.5mnkujykn3.webp)
+
+#### While Loop
+
+##### Example 1 - Jump to Middle
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Jump_to_Middle.45hfst765n.webp)
+
+##### Example 2 - O1 Optimization
+
+- 改成先判断一次，如果不成立直接结束，否则转变成 do-while loop.
+
+    ```c
+    if (!Test)
+        goto done;
+    loop:
+    	Body
+        if (Test) goto loop;
+    done;
+    ```
+
+#### For Loop
+
+```c
+Init;
+while (Test){
+    Body
+    Update;
+}
+```
+
+- 在采用 O1 优化的时候，Complier 可以帮你去掉一些显而易见的判断语句，比如 Init 之后 while 转 do-while 的初始判断，若显然成立，直接删掉。
+
