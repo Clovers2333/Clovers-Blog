@@ -141,8 +141,8 @@ nav:
   # - 经济学:
   # - 杂项: 
   - 生活:
-    - 读书笔记:
-      - 万历十五年: life/reading/wanli_15.md
+    # - 读书笔记:
+    #   - 万历十五年: life/reading/wanli_15.md
     - 总结:
       - 23-24寒假总结: life/summary/23-24_winter_summary.md
 
