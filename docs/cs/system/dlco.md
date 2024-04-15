@@ -187,10 +187,14 @@ $\bar{S}\bar{R}$ 锁存器同理。
 - 保存时间 $t_{hold}$：在触发边沿到了以后输入信号还要保存的时间
 
 则：
+
+
 $$
-t_{clk} > t_{setup}+t_{ffdd}+t_{nspd}\\
-t_{hold} < t_{ffpd} + t_{nspd}\\
-t_{clk} > t_{outpd}
+\begin{aligned}
+t_{clk} &> t_{setup}+t_{ffdd}+t_{nspd} \\ 
+t_{hold} &< t_{ffpd} + t_{nspd} \\ 
+t_{clk} &> t_{outpd}
+\end{aligned}
 $$
 
 
