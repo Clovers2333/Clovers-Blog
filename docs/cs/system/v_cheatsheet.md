@@ -208,5 +208,17 @@ module dummy #(parameter LEN = 4) (
 
 ## 其它语法
 
-`$random()`：提供宽度为 32 位的随机数。
+### 调试与对拍
+
+- `$random()`：提供宽度为 32 位的随机数。
+
+- `$display`：和 C 里面的 `printf` 非常类似：
+
+    ```verilog
+    $display("Start simulation");        //显示字符串
+    $display("data_play = %h hex", 100);     //显示data_play的16进制数（或者其他进制）
+    $display("Simulation time is %t", $time);     //显示仿真的时间
+    ```
+
+- 
 

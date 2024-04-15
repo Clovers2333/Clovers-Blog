@@ -132,6 +132,68 @@ $$
 
 
 
+## 4. 时序逻辑电路
+
+- **核心：有状态记忆模块**。
+- 同步时序逻辑：在统一的时钟信号下进行状态转换。
+- 异步时序逻辑电路：没有统一的时钟信号控制。
+
+### 4.2 锁存器（latch）和触发器（flip-flop）
+
+- 锁存器和触发器都基于“双稳态元件”（可稳定保持 $Q, \bar{Q}$​ 的元件）
+- 锁存器：直接由激励信号控制电路的状态。
+- 触发器：利用一个叫“时钟”的特殊定时控制信号去限制存储单元的状态的改变时间。
+
+#### SR 锁存器
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/SR_latch.8hg9kebscb.webp)
+
+$\bar{S}\bar{R}$ 锁存器同理。
+
+#### D 锁存器
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/D_latch.2h83fotf1f.webp)
+
+- C 为 1 时 Q 就是 D；C 为 0 时 Q 保持。
+
+#### D 触发器
+
+- **触发器的需求：仅在“时钟信号”边沿的那一下更新状态，其余时刻均不更新。**
+
+    ​	——使用两个反相的锁存器，一个在低脉冲开门，一个在高脉冲开门，仅在后面那个锁存器开门的时候更新状态。
+
+- 以下是一个下降沿触发的 D 触发器。（记改变输出状态的沿为 “触发边沿”）
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/D_filp-flop.7egk9jyg8g.webp)
+
+#### T 触发器
+
+- 将 D 触发器的 $\bar{Q}$ 端返回连向 D 端。
+- 每次时钟信号的触发边沿到来时，输出信号都会改变一次。
+
+#### 触发、锁存器的标准图形符号
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/latch_simple_graph.9dcqzwgpm3.webp)
+
+### [补充]时序约束关系
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/time_logic.92px6rrfm2.webp)
+
+- 上图是 Mealy 型电路；若外部输入不会直接影响输出，那么就是 Moore 电路。
+- 触发器锁存延迟 $t_{ffdd}$：触发边沿到来后，经过 $t_{ffdd}$ 触发器输出端稳定得到新的状态
+- 输出逻辑延迟 $t_{outpd}$：输出模块的组合逻辑电路的延时
+- 次态激励逻辑延迟 $t_{nspd}$：新状态稳定后信号再走过次态激励模块，建立新的输入的时间
+- 触发器建立时间 $t_{setup}$​：触发器输入信号在触发边沿到来前需要保存的时间
+- 保存时间 $t_{hold}$：在触发边沿到了以后输入信号还要保存的时间
+
+则：
+$$
+&t_{clk} > t_{setup}+t_{ffdd}+t_{nspd}\\
+&t_{hold} < t_{ffpd} + t_{nspd}\\
+&t_{clk} > t_{outpd}
+$$
+
+
 ## 5. FPGA 设计和硬件描述语言
 
 - FPGA: Field Programmable Gate Array（现场可编程门阵列）
