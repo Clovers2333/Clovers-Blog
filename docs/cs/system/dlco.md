@@ -188,9 +188,9 @@ $\bar{S}\bar{R}$ 锁存器同理。
 
 则：
 $$
-&t_{clk} > t_{setup}+t_{ffdd}+t_{nspd}\\
-&t_{hold} < t_{ffpd} + t_{nspd}\\
-&t_{clk} > t_{outpd}
+t_{clk} > t_{setup}+t_{ffdd}+t_{nspd}\\
+t_{hold} < t_{ffpd} + t_{nspd}\\
+t_{clk} > t_{outpd}
 $$
 
 
