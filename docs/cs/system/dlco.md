@@ -197,6 +197,26 @@ t_{clk} &> t_{outpd}
 \end{aligned}
 $$
 
+### 4.3 时序逻辑设计
+
+#### 格雷码
+
+1. 翻转最低位得到下一个格雷码
+2. 把最右边的 1 的左边的位翻转得到下一个格雷码
+
+交替上述两步，即可生成格雷码。
+
+#### One-Hot 编码
+
+- 整个二进制串只会出现一个 1
+- 第 $k$ 位为 1 表示状态为 $k$​.
+
+### 4.4 典型时序逻辑部件
+
+- 计数器
+- 寄存器和寄存器堆（留坑，第八章详细讲）
+
+
 
 ## 5. FPGA 设计和硬件描述语言
 
@@ -247,3 +267,14 @@ CPU---GPU---FPGA/ASIC
 ### 5.3 Verilog 语言设计
 
 详见 [Verilog Cheatsheet](https://clovers2333.github.io/Clovers-Blog/cs/system/v_cheatsheet/).
+
+### [补充] FPGA 初始化
+
+FPGA 的复位信号 rstn 由 FPGA 芯片的 C12 引脚引入。当 vivado 将 bitstream 下载到 FPGA 板之后，rstn 信号会先保持一段时间的 0，使得所有的寄存器可以被充分初始化，然后 rstn 信号变为 1 且一直保持不变，这样所有的寄存器就从初始化阶段进入工作阶段，开始载入数据。
+
+FPGA 进入工作阶段后，我们也可以按开发板的 reset 按钮，让 rstn 再次输入 0，重新复位所有寄存器的值。
+
+```verilog
+set_property -dict {PACKAGE_PIN C12 IOSTANDARD LVCMOS33} [get_ports rstn]
+```
+

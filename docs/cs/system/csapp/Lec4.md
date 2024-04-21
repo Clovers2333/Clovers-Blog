@@ -49,7 +49,7 @@ $$
 - Case 2: `frac != 000...0`——Represent `NaN(Not-a-Number)`
     - `sqrt(-1), inf-inf, inf*0`.
 
-一个简单的例子：
+一个简单的例子：	
 
 ![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Floatnum.839spiozdx.png)
 
@@ -85,7 +85,7 @@ $$
 
 - `double/float -> int`
     - 把指数乘进去以后扔掉小数位
-    - 可以理解成向 0 取整
+    - **可以理解成向 0 取整**
     - 若数为 `NaN` 或 `inf`，设成 Tmin.
 - `int -> double`: exact conversion，因为 `int` 位数小于 `double`
 - `int -> float`: 因为 `float` 有符号位和指数位，所以位数不够，用浮点数的方式取整。

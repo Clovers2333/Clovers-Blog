@@ -19,6 +19,8 @@
 
 ### 数据类型
 
+**推荐用 `logic` 全面替换 `wire` 和 `reg`**，`verilog` 语言会自己判定 `logic` 的类型。
+
 - 网线类型（net，提供元件或模块之间的物理连接）：如 `wire`.
 - 寄存器类型（register，抽象的存储元件）：`reg`；在给寄存器赋予新值之前，寄存器将保存上一次的赋值结果，这与触发器和锁存器的性质类似。
 - 参数类型（parameter）：给常量赋予有意义的标识符（const）
@@ -114,6 +116,79 @@ for(expr1; expr2; expr3) statement
 
 语法和 C 语言相同，从硬件的角度来理解，不应该理解成电路在时间上重复，而应该理解成在空间上重复构建多个电路。
 
+#### 组合逻辑和时序逻辑区别
+
+**从硬件角度思考，一个是单纯的导线，另一个则是触发器、锁存器等。**
+
+- 对于组合逻辑电路，使用 `always@(*)` 的时候，`if` 是需要搭配 `else` 使用的，因为 `always@(*)` 综合得到的电路是用 `wire` 搭建的，不然会导致环路错误（如果没有 `else` 就会保持）；
+
+- 但是时序逻辑电路不需要，`always@(posedge clk)` 只是借用了 `reg` 的 `always` 块语法而已，它得到的电路使用真实的寄存器搭建的，是不会形成环路问题的（`else` 保持的情况已经写在触发器、锁存器里面了，不会有问题）
+
+- 对于时序电路，只推荐以下四种行为建模：
+
+    ```verilog
+    always@(posedge clk) // 上升沿触发
+    
+    always@(negedge clk) // 下降沿触发
+    
+    always@(posedge clk or negedge rstn) // 上升沿触发和下降沿复位
+    
+    always@(posedge clk or posedge rstn) // 上升沿触发和上升沿复位
+    ```
+
+    - 多边沿、多时钟触发都会无法构成时序电路。
+    - 异步触发因为毛刺而产生数据竞争：
+
+    ```verilog
+    reg [1:0] d;
+    wire problem;
+    reg cond1;
+    reg cond2;
+    assign problem = cond1 & cond2;
+    
+    always@(posedge problem)begin
+        d <= d + 2'b1;
+    end
+    // what if the speed of signal cond1/cond2 is different?
+    // solution: use a uniform signal---clk.
+    ```
+
+#### 其他 `always` 语法
+
+**always_comb:**
+
+你还在为 `always@(*)` 语法的看起来在做 `reg` 编程实际上在做 `wire` 编程苦恼吗？
+
+`always_comb` 关键字就解决了这个问题，它直接把 `always` 块变成组合逻辑电路的，内部被赋值的 `logic` 都会被综合为 `wire`，然后会对 `if-else` 缺失、`case-default` 缺失等问题进行检查。大家可以用`logic+always_comb`语法全面替代`reg+always@(*)`语法，这样在享受 `always` 便利的行为描述语法的同时，也可以享受编译器的电路问题检查。
+
+```verilog
+// 修改前
+reg d;
+always@(*)begin
+    if(a) d <= c;
+    else d <= b;
+end
+
+// 修改后
+logic d;
+always_ff begin
+    if(a) d <= c;
+    else d <= b;
+end
+```
+
+**always_ff:**
+
+内部赋值的 `logic` 全部变成 `reg`.
+
+```verilog
+always_ff@(posedge clk)begin
+    if(problem) d <= d + 2'b1;
+end
+```
+
+
+
 ## 高级语法
 
 ### `generate` 语句
@@ -204,6 +279,10 @@ module dummy #(parameter LEN = 4) (
     input ...
     output ...
 );
+    
+dummy #(.LEN(LEN))
+    A1(.a(),
+       .b());
 ```
 
 ## 其它语法
