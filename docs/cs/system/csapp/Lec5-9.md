@@ -141,6 +141,7 @@ sumstore:
     - `Src` is address mode expression.
     - Set `Dst` to address denoted by expression.
     - 可以视为一个比较特殊的运算操作。
+    - **leaq 非常重要的作用：create pointers.**
 
 一些其它的运算操作：
 
@@ -287,3 +288,45 @@ while (Test){
 
 - 在采用 O1 优化的时候，Complier 可以帮你去掉一些显而易见的判断语句，比如 Init 之后 while 转 do-while 的初始判断，若显然成立，直接删掉。
 
+## Lecture 7 - Procedure
+
+- ABI: Application Binary Interface，即应用程序二进制接口。它定义了应用程序与操作系统之间进行交互的方式和规范，确保不同的软件组件能够正确地协同工作。
+
+### x86-64 Stack
+
+- 从一个很高的地址开始存数据，**从高往低**。
+- 寄存器 `%rsp` 储存栈的最低点，也即栈顶。
+- 汇编语言中的 `push/pop` 都是指对栈的操作。 
+
+### Calling Conventions
+
+#### Passing Control 
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Control_Flow_Example.70a4sxdm2c.webp)
+
+- 对于`call` 语句：当调用函数 `mult2` 时，我们暂时将下一个语句的地址存到 `stack` 里面，然后程序计数器 `%rip` 跳转到函数的地址开始运行函数，当函数运行结束以后，再取栈顶的地址开始运行。
+- 对于 `ret` 语句：reverse the effect of `call`，把 `%rip` 跳回栈顶，然后栈 `pop`.
+
+#### Passing Data
+
+- 通过 `%rdi, %rsi, %rdx, %rcx, %r8, %r9` 六个寄存器来传输值，通过 `%rax` 来返回值。
+- 如果传输值超过六个？——把多余的参数放在栈里面。
+
+#### Managing Local Data
+
+主要是对于栈的管理，对于一个递归树形结构的管理。（reference：https://blog.csdn.net/xungjhj/article/details/70946057）
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Stack_Frame.2yy5lddnnj.webp)
+
+- 参数 `1~n` 是传给 caller 的参数，上面的地址保存一些需要暂存的变量。
+- 栈帧（stack frame）表示一个函数所占的栈空间，`%rsp` 保存栈顶的地址，`%rbp` 保存当前运行函数的最高地址。
+- 当函数 return 时，通过 `%rbp` 返回函数的最高地址，然后在这个地址中把 `%rbp` 更新成 father 函数的 `%rbp`。
+- 然后再读取返回地址，也就是调用 `son` 以后 `father` 要继续运行的语句的地址，把栈上的参数弹出，要返回的变量进行恢复，继续运行返回语句即可。
+
+以下是一个递归的汇编代码：
+
+![](https://github.com/Clovers2333/picx-images-hosting/raw/master/recursion_example.6pnb6nfaob.webp)
+
+其中 `pushq %rbx` 是暂存 `%rbx` 中的值；`popq %rbx` 是返回 `%rbx` 的值。
+
+为什么不用 `%rbp` 作栈帧了？——因为每一层递归只需要在栈中 push 一个元素，所以简单地 pop 就行了。
