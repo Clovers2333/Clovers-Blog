@@ -314,7 +314,7 @@ while (Test){
 
 #### Managing Local Data
 
-主要是对于栈的管理，对于一个递归树形结构的管理。（reference：https://blog.csdn.net/xungjhj/article/details/70946057）
+主要是对于栈的管理，对于一个递归树形结构的管理。（[reference](https://blog.csdn.net/xungjhj/article/details/70946057)）
 
 ![](https://github.com/Clovers2333/picx-images-hosting/raw/master/Stack_Frame.2yy5lddnnj.webp)
 
@@ -330,3 +330,4 @@ while (Test){
 其中 `pushq %rbx` 是暂存 `%rbx` 中的值；`popq %rbx` 是返回 `%rbx` 的值。
 
 为什么不用 `%rbp` 作栈帧了？——因为每一层递归只需要在栈中 push 一个元素，所以简单地 pop 就行了。
+
