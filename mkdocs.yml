@@ -134,6 +134,7 @@ nav:
         - Bits, Bytes and Integer: cs/system/csapp/Lec2-3.md
         - Floating Points: cs/system/csapp/Lec4.md
         - Machine-Level Programming: cs/system/csapp/Lec5-9.md
+      - CS61C: cs/system/csapp/cs61c.md
       - 数字逻辑与计算机组成: cs/system/dlco.md
       - Digital Design and Computer Architecture: cs/system/ddca.md
       - Verilog Cheatsheet: cs/system/v_cheatsheet.md
