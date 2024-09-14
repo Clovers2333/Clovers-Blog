@@ -131,9 +131,12 @@ nav:
     - 计算机系统:
       - CSAPP:
         - Index: cs/system/csapp/index.md
+        - Labs: cs/system/csapp/labs.md
         - Bits, Bytes and Integer: cs/system/csapp/Lec2-3.md
         - Floating Points: cs/system/csapp/Lec4.md
         - Machine-Level Programming: cs/system/csapp/Lec5-9.md
+        - Optimizing: cs/system/csapp/Lec10.md
+        - Processor Structure: cs/system/csapp/Lec11-13.md
       - CS61C: cs/system/cs61c.md
       - 数字逻辑与计算机组成: cs/system/dlco.md
       - Digital Design and Computer Architecture: cs/system/ddca.md
