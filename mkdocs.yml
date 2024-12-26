@@ -150,6 +150,12 @@ nav:
   # - 信息安全:
   - 经济与金融学:
     - 微观经济学: finance/micro.md
+    - 公司金融:
+      - Index: finance/corporate/index.md
+      - 财务报表及模型: finance/corporate/intro.md
+      - 现值计算及投资决策: finance/corporate/investment.md
+      - 融资决策和资产定价: finance/corporate/financing.md
+      - 股利政策: finance/corporate/dividend.md
   # - 杂项: 
   - 生活:
     # - 读书笔记:
