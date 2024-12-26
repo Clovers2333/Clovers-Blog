@@ -133,7 +133,11 @@ nav:
         - CS61C: cs/system/cs61c.md
         - Verilog Cheatsheet: cs/system/v_cheatsheet.md
       - Operating Systems:
+        - Index: cs/system/os/index.md
+        - Introduction: cs/system/os/Intro.md
+        - Structure: cs/system/os/Structure.md
         - Process: cs/system/os/Process.md
+        - Scheduling: cs/system/os/Scheduling.md
         - Thread: cs/system/os/Thread.md
         - Synchronization: cs/system/os/Synchronization.md
       - Books:
