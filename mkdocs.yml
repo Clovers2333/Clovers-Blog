@@ -132,7 +132,7 @@ nav:
       - Languages:
         - CS61C: cs/system/cs61c.md
         - Verilog Cheatsheet: cs/system/v_cheatsheet.md
-      - Operating Systems:
+      - Operating System:
         - Index: cs/system/os/index.md
         - Introduction: cs/system/os/Intro.md
         - Structure: cs/system/os/Structure.md
