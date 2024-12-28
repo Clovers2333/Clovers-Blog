@@ -7,6 +7,6 @@
 - [ ] [Introduction](Intro.md)
 - [ ] [OS Structure](Structure.md)
 - [x] [Process](Process.md)
-- [ ] [Scheduling](Schedule.md)
+- [x] [Scheduling](Scheduling.md)
 - [ ] [Thread](Thread.md)
 - [x] [Synchronization](Synchronization.md)
