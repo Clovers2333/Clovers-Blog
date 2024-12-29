@@ -1,6 +1,8 @@
 # 高级数据结构与算法分析
 
-> 感谢 [kailqq](https://www.kailqq.cc/NOTE/ADS/) 和 [shrike505](https://nest.shrike505.cc/notes/ComputerScience/ADS/) 义父的笔记！
+> 感谢 [kailqq](https://www.kailqq.cc/NOTE/ADS/) 和 [shrike505](https://nest.shrike505.cc/notes/ComputerScience/ADS/) 义父们的笔记！
+>
+> 叠甲：ADS 大部分的笔记基本上都是搬运的，只是为了个人复习，如果要系统学习还是移步原作者的博客。
 
 ## Table of Contents
 
