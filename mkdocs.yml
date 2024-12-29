@@ -165,7 +165,7 @@ nav:
         - 数字逻辑与计算机组成: cs/books/system/dlco.md
         - Digital Design and Computer Architecture: cs/books/system/ddca.md
   # - 信息安全:
-  - Economics & Finance:
+  - Economy & Finance:
     - 微观经济学: finance/micro.md
     - 公司金融:
       - Index: finance/corporate/index.md
