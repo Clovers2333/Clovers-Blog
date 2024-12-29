@@ -129,7 +129,18 @@ nav:
   #     - html:
     - Data Structure:
       - 数据结构基础: cs/ds/fds.md
-      - 高级数据结构与算法分析: cs/ds/ads.md
+      - 高级数据结构与算法分析:
+        - Index: cs/ds/ads/index.md
+        - 数据结构全家桶: cs/ds/ads/ds.md
+        - 回溯: cs/ds/ads/back.md
+        - 分治: cs/ds/ads/divide.md
+        - 贪心和动态规划: cs/ds/ads/greedy_DP.md
+        - NP 问题: cs/ds/ads/NP.md
+        - 近似算法: cs/ds/ads/Appr.md
+        - 局部搜索: cs/ds/ads/LocalSearch.md
+        - 随机化: cs/ds/ads/rand.md
+        - 并行计算: cs/ds/ads/parallel.md
+        - 外部排序: cs/ds/ads/external.md
     - 计算机系统:
       - Languages:
         - CS61C: cs/system/languages/cs61c.md
