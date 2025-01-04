@@ -141,7 +141,16 @@ nav:
         - 随机化: cs/ds/ads/rand.md
         - 并行计算: cs/ds/ads/parallel.md
         - 外部排序: cs/ds/ads/external.md
-    - 计算机系统:
+    - AI:
+      - 人工智能引论:
+        - Index: cs/ai/intro/index.md
+        - 逻辑与推理: cs/ai/intro/logic.md
+        - 搜索与求解: cs/ai/intro/search.md
+        - 机器学习: cs/ai/intro/ml.md
+        - 深度学习: cs/ai/intro/dl.md
+        - 强化学习: cs/ai/intro/rl.md
+        - 人工智能博弈: cs/ai/intro/game.md
+    - System:
       - Languages:
         - CS61C: cs/system/languages/cs61c.md
         - Verilog Cheatsheet: cs/system/languages/v_cheatsheet.md
