@@ -67,3 +67,39 @@ $$
 \text{tape(k+1)}: & \ F^{(k)}(n-1) = F^{(k)}(n-2) + F^{(k)}(n-3) + \cdots + F^{(k)}(n-k-1)
 \end{aligned}
 $$
+注意，斐波那契的方法会使 pass 变多，我们这里要做的是尽可能减少读写磁头的扫描次数和磁带个数。
+
+**如果 runs 的长度已经固定，最小 merge 时间？——哈夫曼编码**
+
+## 并行优化
+
+> 本质上就是 K-way 的优化，K-way 里面的 m 和这里的内存分区不是一回事情；前者是在最开始分块排序用的，后者则是在 runs 之间合并的时候采用的流水线分区。
+
+在 K-way Merge 的基础上，加一个流水线。
+
+一：空的内存分区读取磁带数据
+
+二：另外 K 个内存分区进行合并，合并结果存到等长的一个输出分区，然后输入分区合并，会空出来一个输入分区
+
+三：输出分区满了以后，将输出分区写入（因为一个输出分区在接收合并，另一个在写入，所以要 2 个）
+
+有点抽象就着例子拟合吧
+
+> **Run 1**: 1, 3, 5, 7, 8, 9, 10, 12
+>
+> **Run 2**: 2, 4, 6, 15, 20, 25, 30, 32
+>
+> Use 2-way merge with 4 input buffers and 2 output buffers for parallel operations. Which of the following three operations are NOT done in parallel?
+>
+> A. 1 and 2 are written onto the third tape; 3 and 4 are merged into an output buffer; 6 and 15 are read into an input buffer
+>
+> B. 3 and 4 are written onto the third tape; 5 and 6 are merged into an output buffer; 8 and 9 are read into an input buffer
+>
+> C. 5 and 6 are written onto the third tape; 7 and 8 are merged into an output buffer; 20 and 25 are read into an input buffer
+>
+> D. 7 and 8 are written onto the third tape; 9 and 15 are merged into an output buffer; 10 and 12 are read into an input buffer
+
+![15.1](assets/ads_hw_15.1.png)
+
+D 选项强行想要 parallel ，因此没有管正在读入的 10, 12，直接基于现有 3 个 buffer 块 merge ，因此进行了错误的 merge(9, 15)。事实上这一步无法 parallel ，必须等待 10, 12 读完之后才能进行正确的 merge(9, 10)。
+
