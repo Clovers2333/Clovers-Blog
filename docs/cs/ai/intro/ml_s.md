@@ -501,21 +501,22 @@ AdaBoosting 的理论基础来自**可学习理论（computational learning theo
 2. **迭代训练弱分类器**：
    
    对于每轮迭代 $m$：
-   1. 训练一个弱分类器 $G_m$，使其在样本权重 $w_m$ 下最小化分类误差。
+
+   a. 训练一个弱分类器 $G_m$，使其在样本权重 $w_m$ 下最小化分类误差。
    
-   2. 计算分类误差：
+   b. 计算分类误差：
       $$
       \epsilon_m = \frac{\sum_{i=1}^N w_m(i) \cdot I(G_m(x_i) \neq y_i)}{\sum_{i=1}^N w_m(i)}
       $$
       其中，$I$ 为指示函数，当分类错误时为 1，否则为 0，相当于计算有多少比例的数据拟合成功。
    
-   3. 计算弱分类器的权重：
+   c. 计算弱分类器的权重：
       $$
       \alpha_m = \frac{1}{2} \ln\left(\frac{1 - \epsilon_m}{\epsilon_m}\right)
       $$
       以 $\dfrac{1}{2}$ 为界，比随机还差的赋予很差的权重，比随机好的赋予较高的权重。
    
-   4. 更新样本权重：
+   d. 更新样本权重：
       $$
       w_{m+1}(i) = w_m(i) \cdot e^{-\alpha_m y_i G_m(x_i)}
       $$
