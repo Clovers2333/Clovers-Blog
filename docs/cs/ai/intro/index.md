@@ -1,5 +1,7 @@
 # Outline
 
+> 感谢 GPT 老师！
+
 ## Table of Contents
 
 - [ ] [逻辑与推理](logic.md)
