@@ -146,7 +146,8 @@ nav:
         - Index: cs/ai/intro/index.md
         - 逻辑与推理: cs/ai/intro/logic.md
         - 搜索与求解: cs/ai/intro/search.md
-        - 机器学习: cs/ai/intro/ml.md
+        - 机器学习——监督学习: cs/ai/intro/ml_s.md
+        - 机器学习——无监督学习: cs/ai/intro/ml_uns.md
         - 深度学习: cs/ai/intro/dl.md
         - 强化学习: cs/ai/intro/rl.md
         - 人工智能博弈: cs/ai/intro/game.md
