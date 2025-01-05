@@ -96,8 +96,8 @@ $$
 
 $$
 \begin{align}
-h_\theta(x) = \theta_0 + \theta_1 x \\
-J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2
+h_\theta(x) &= \theta_0 + \theta_1 x \\
+J(\theta_0, \theta_1) &= \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2
 \end{align}
 $$
 
@@ -113,6 +113,7 @@ $$
 \theta_{1} := \text{temp1}
 \end{align}
 $$
+
 其中 $\alpha$ 是学习率，控制步幅。 
 
 #### 最小二乘法
