@@ -39,10 +39,10 @@ $$
 
 | 损失函数名称              | 损失函数定义                                                 |
 | ------------------------- | ------------------------------------------------------------ |
-| 0-1 损失函数              | $$ \text{Loss}(y_i, f(x_i)) = \begin{cases} 0, & f(x_i) = y_i \\ 1, & f(x_i) \neq y_i \end{cases} $$ |
-| 平方损失函数              | $$ \text{Loss}(y_i, f(x_i)) = (y_i - f(x_i))^2 $$            |
-| 绝对损失函数              | $$ \text{Loss}(y_i, f(x_i)) = |y_i - f(x_i)| $$              |
-| 对数损失函数/对数似然损失 | $$ \text{Loss}(y_i, P(y_i|x_i)) = -\log(P(y_i|x_i)) $$       |
+| 0-1 损失函数              | $$ \begin{align*} \text{Loss}(y_i, f(x_i)) = \begin{cases} 0, & f(x_i) = y_i \\ 1, & f(x_i) \neq y_i \end{cases} \end{align*} $$ |
+| 平方损失函数              | $ \text{Loss}(y_i, f(x_i)) = (y_i - f(x_i))^2 $            |
+| 绝对损失函数              | $ \text{Loss}(y_i, f(x_i)) = \|y_i - f(x_i)\|  $              |
+| 对数损失函数/对数似然损失 | $$ \text{Loss}(y_i, P(y_i\|x_i)) = -\log(P(y_i\|x_i)) $$       |
 
 ## 过学习和欠学习
 
@@ -95,10 +95,10 @@ $$
 ### 一元线性回归
 
 $$
-\begin{align}
+\begin{align*}
 h_\theta(x) &= \theta_0 + \theta_1 x \\
 J(\theta_0, \theta_1) &= \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2
-\end{align}
+\end{align*}
 $$
 
 #### 梯度下降法
@@ -106,12 +106,12 @@ $$
 即：
 
 $$
-\begin{align}
+\begin{align*}
 \text{temp0} := \theta_{0} - \alpha \frac{\partial}{\partial \theta_{0}} J(\theta_{0}, \theta_{1}) \\
 \text{temp1} := \theta_{1} - \alpha \frac{\partial}{\partial \theta_{1}} J(\theta_{0}, \theta_{1}) \\
 \theta_{0} := \text{temp0} \\
 \theta_{1} := \text{temp1}
-\end{align}
+\end{align*}
 $$
 
 其中 $\alpha$ 是学习率，控制步幅。 
