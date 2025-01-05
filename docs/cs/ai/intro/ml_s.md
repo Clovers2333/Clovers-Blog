@@ -39,9 +39,9 @@ $$
 
 | 损失函数名称              | 损失函数定义                                                 |
 | ------------------------- | ------------------------------------------------------------ |
-| 0-1 损失函数              | $$ \begin{align*} \text{Loss}(y_i, f(x_i)) = \begin{cases} 0, & f(x_i) = y_i \\ 1, & f(x_i) \neq y_i \end{cases} \end{align*} $$ |
-| 平方损失函数              | $ \text{Loss}(y_i, f(x_i)) = (y_i - f(x_i))^2 $            |
-| 绝对损失函数              | $ \text{Loss}(y_i, f(x_i)) = \|y_i - f(x_i)\|  $              |
+| 0-1 损失函数              | $$  \text{Loss}(y_i, f(x_i)) =  [f(x_i) = y_i]  $$ |
+| 平方损失函数              | $$ \text{Loss}(y_i, f(x_i)) = (y_i - f(x_i))^2 $$            |
+| 绝对损失函数              | $$ \text{Loss}(y_i, f(x_i)) = \|y_i - f(x_i)\|  $$              |
 | 对数损失函数/对数似然损失 | $$ \text{Loss}(y_i, P(y_i\|x_i)) = -\log(P(y_i\|x_i)) $$       |
 
 ## 过学习和欠学习
