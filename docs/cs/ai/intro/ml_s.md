@@ -95,8 +95,10 @@ $$
 ### 一元线性回归
 
 $$
+\begin{align}
 h_\theta(x) = \theta_0 + \theta_1 x \\
 J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2
+\end{align}
 $$
 
 #### 梯度下降法
@@ -104,10 +106,12 @@ $$
 即：
 
 $$
+\begin{align}
 \text{temp0} := \theta_{0} - \alpha \frac{\partial}{\partial \theta_{0}} J(\theta_{0}, \theta_{1}) \\
 \text{temp1} := \theta_{1} - \alpha \frac{\partial}{\partial \theta_{1}} J(\theta_{0}, \theta_{1}) \\
 \theta_{0} := \text{temp0} \\
 \theta_{1} := \text{temp1}
+\end{align}
 $$
 其中 $\alpha$ 是学习率，控制步幅。 
 
@@ -352,5 +356,3 @@ $$
 
 2. **后剪枝**：
     - 在决策树生成后，评估子树对整体模型性能的影响，并选择性地合并节点。
-
-## 
