@@ -107,10 +107,10 @@ $$
 
 $$
 \begin{align*}
-\text{temp0} := \theta_{0} - \alpha \frac{\partial}{\partial \theta_{0}} J(\theta_{0}, \theta_{1}) \\
-\text{temp1} := \theta_{1} - \alpha \frac{\partial}{\partial \theta_{1}} J(\theta_{0}, \theta_{1}) \\
-\theta_{0} := \text{temp0} \\
-\theta_{1} := \text{temp1}
+\text{temp0} &:= \theta_{0} - \alpha \frac{\partial}{\partial \theta_{0}} J(\theta_{0}, \theta_{1}) \\
+\text{temp1} &:= \theta_{1} - \alpha \frac{\partial}{\partial \theta_{1}} J(\theta_{0}, \theta_{1}) \\
+\theta_{0} &:= \text{temp0} \\
+\theta_{1} &:= \text{temp1}
 \end{align*}
 $$
 
