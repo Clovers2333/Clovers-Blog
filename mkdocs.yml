@@ -163,6 +163,7 @@ nav:
         - Scheduling: cs/system/os/Scheduling.md
         - Thread: cs/system/os/Thread.md
         - Synchronization: cs/system/os/Synchronization.md
+        - Deadlock: cs/system/os/Deadlock.md
       - Books:
         - CSAPP:
           - Index: cs/system/books/csapp/index.md
