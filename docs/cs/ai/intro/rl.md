@@ -158,35 +158,46 @@ $$
      $$
 
    **最优值函数**：最优策略 $\pi^*$ 对应的值函数：
+
    - 最优状态值函数：
+
      $$
      V^*(s) = \max_\pi V_\pi(s)
      $$
+
    - 最优状态-动作值函数：
+
      $$
      Q^*(s, a) = \max_\pi Q_\pi(s, a)
      $$
 
 2. **贝尔曼方程（Bellman Equation）**  
 
-   贝尔曼方程描述了值函数的递归关系，为基于价值的强化学习提供了更新的理论基础：
+贝尔曼方程描述了值函数的递归关系，为基于价值的强化学习提供了更新的理论基础：
 
-   - 对于状态值函数：
-     $$
-     V_\pi(s) = \mathbb{E}_{a \sim \pi, s' \sim P} \left[R(s, a) + \gamma V_\pi(s') \right]
-     $$
-   - 对于状态-动作值函数：
-     $$
-     Q_\pi(s, a) = \mathbb{E}_{s' \sim P} \left[R(s, a) + \gamma \mathbb{E}_{a' \sim \pi} Q_\pi(s', a') \right]
-     $$
-   - 最优状态值函数的贝尔曼方程：
-     $$
-     V^*(s) = \max_a \mathbb{E}_{s' \sim P} \left[R(s, a) + \gamma V^*(s') \right]
-     $$
-   - 最优状态-动作值函数的贝尔曼方程：
-     $$
-     Q^*(s, a) = \mathbb{E}_{s' \sim P} \left[R(s, a) + \gamma \max_{a'} Q^*(s', a') \right]
-     $$
+对于状态值函数：
+
+$$
+V_\pi(s) = \mathbb{E}_{a \sim \pi, s' \sim P} \left[R(s, a) + \gamma V_\pi(s') \right]
+$$
+
+对于状态-动作值函数：
+
+$$
+Q_\pi(s, a) = \mathbb{E}_{s' \sim P} \left[R(s, a) + \gamma \mathbb{E}_{a' \sim \pi} Q_\pi(s', a') \right]
+$$
+
+最优状态值函数的贝尔曼方程：
+
+$$
+V^*(s) = \max_a \mathbb{E}_{s' \sim P} \left[R(s, a) + \gamma V^*(s') \right]
+$$
+
+最优状态-动作值函数的贝尔曼方程：
+
+$$
+  Q^*(s, a) = \mathbb{E}_{s' \sim P} [R(s, a) + \gamma \max_{a'} Q^*(s', a') ]
+$$
 
 ### 典型方法
 
@@ -196,32 +207,35 @@ $$
 
 1. **策略评估（Policy Evaluation）**  
 
-   策略评估用于计算一个固定策略 $\pi$​ 的值函数，通过反复迭代直到收敛：
-   $$
-   V_\pi(s) \gets \sum_{a \in A} \pi(a|s) \sum_{s' \in S} P(s'|s, a) \left[R(s, a, s') + \gamma V_\pi(s')\right]
-   $$
-   $\sum_{a \in A} \pi(a|s) \sum_{s' \in S}P(s'|s, a)$ 其实都是概率分布，动态规划的限制就在于我们要提前知道整个的 $P$ 概率分布.
+      策略评估用于计算一个固定策略 $\pi$​ 的值函数，通过反复迭代直到收敛：
+      $$
+      V_\pi(s) \gets \sum_{a \in A} \pi(a|s) \sum_{s' \in S} P(s'|s, a) \left[R(s, a, s') + \gamma V_\pi(s')\right]
+      $$
+      $\sum_{a \in A} \pi(a|s) \sum_{s' \in S}P(s'|s, a)$ 其实都是概率分布，动态规划的限制就在于我们要提前知道整个的 $P$ 概率分布.
 
 2. **策略改进（Policy Improvement）**  
 
-   策略改进通过选择能最大化值函数的动作来更新策略：
-   $$
-   \pi'(a|s) = \begin{cases} 
-   1 & \text{if } a = \arg\max_{a \in A} Q_\pi(s, a) \\ 
-   0 & \text{otherwise}
-   \end{cases}
-   $$
+      策略改进通过选择能最大化值函数的动作来更新策略：
+
+      $$
+      \pi'(a|s) = \begin{aligned}
+            \begin{cases} 
+            1 & \text{if } a = \arg\max_{a \in A} Q_\pi(s, a) \\ 
+            0 & \text{otherwise}
+            \end{cases}
+         \end{aligned}
+      $$
 
 3. **策略迭代（Policy Iteration）**  
 
-   策略迭代是交替进行策略评估和策略改进的过程，最终收敛到最优策略 $\pi^*$​。
+      策略迭代是交替进行策略评估和策略改进的过程，最终收敛到最优策略 $\pi^*$​。
 
 4. **值迭代（Value Iteration）**  
 
-   值迭代通过直接更新值函数来找到最优策略：
-   $$
-   V(s) \gets \max_{a \in A} \sum_{s' \in S} P(s'|s, a) \left[R(s, a, s') + \gamma V(s')\right]
-   $$
+      值迭代通过直接更新值函数来找到最优策略：
+      $$
+      V(s) \gets \max_{a \in A} \sum_{s' \in S} P(s'|s, a) \left[R(s, a, s') + \gamma V(s')\right]
+      $$
 
 #### 蒙特卡洛方法（Monte Carlo Methods）
 
@@ -229,19 +243,20 @@ $$
 
 1. **核心思想**  
 
-   蒙特卡洛方法基于多次模拟的累积奖励平均值来估计值函数：
-   $$
-   V(s) = \mathbb{E}[G_t | s_t = s]
-   $$
+      蒙特卡洛方法基于多次模拟的累积奖励平均值来估计值函数：
+      $$
+      V(s) = \mathbb{E}[G_t | s_t = s]
+      $$
 
 2. **回报计算**  
 
-   在一个完整的序列（Episode）中，回报 $G_t$ 是从时间步 $t$​ 开始的累积奖励：
-   $$
-   G_t = R_{t+1} + \gamma R_{t+2} + \dots + \gamma^{T-t-1} R_T
-   $$
+      在一个完整的序列（Episode）中，回报 $G_t$ 是从时间步 $t$​ 开始的累积奖励：
+      $$
+      G_t = R_{t+1} + \gamma R_{t+2} + \dots + \gamma^{T-t-1} R_T
+      $$
 
 3. **优点与局限**  
+
    - **优点**：无需环境模型，能够处理复杂的非周期性任务。  
    - **局限**：计算延迟（需等待整个序列结束），对任务的样本效率要求较高。
 
@@ -331,9 +346,11 @@ $$
 ![image-20250109195327756](assets/image-20250109195327756.png)
 
 策略梯度的数学公式为：
-$$
-\nabla_\theta J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta} \left[\sum_{t=0}^\infty \nabla_\theta \log \pi_\theta(a_t|s_t) G_t \right]
-$$
+
+   $$
+   \nabla_\theta J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta} \left[\sum_{t=0}^\infty \nabla_\theta \log \pi_\theta(a_t|s_t) G_t \right]
+   $$
+
 其中：  
 
 - $\log \pi_\theta(a_t|s_t)$ 是策略的对数概率。  
@@ -369,6 +386,7 @@ $$
 $$
 \nabla_\theta J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta} \left[\nabla_\theta \log \pi_\theta(a_t|s_t) \delta_t \right]
 $$
+
 其中：  
 
 - $\delta_t$ 是 TD 误差，定义为：
