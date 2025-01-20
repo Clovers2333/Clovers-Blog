@@ -116,8 +116,8 @@ nav:
     - 友链: links.md
   - Computer Science:
     - Introduction:
+      - Bash Cheatsheet: cs/basic/bash_cheatsheet.md
       - MIT Missing Semester: cs/basic/MIT-Missing-Semester.md
-      - Git Cheatsheet: cs/basic/git_cheatsheet.md
       - 程序设计与算法基础: cs/basic/fpa.md
     - Basic Languages:
       - Python:

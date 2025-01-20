@@ -270,10 +270,7 @@ LDA 和 PCA 都是降维方法，但它们的目标和适用场景有所不同�
 
    - 对协方差矩阵 $\Sigma$ 进行特征值分解，对所得特征根从大到小排序 $\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_d$。
    - 取前 $l$ 个最大特征根对应特征向量 $w_1, w_2, ..., w_l$ 组成映射矩阵 $W$（类似 PCA，还是要方差最大）
-   - 将每个人脸图像 $x_i$ 按照如下方法降维：
-     $$
-     (x_i)_{1 \times d}(W)_{d \times l} = 1 \times l
-     $$
+   - 将每个人脸图像 $x_i$ 按照如下方法降维：$(x_i)_{1 \times d}(W)_{d \times l} = 1 \times l$
 
 ### 基于特征人脸的降维
 

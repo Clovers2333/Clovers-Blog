@@ -69,17 +69,15 @@ $$
 
 ### 二次型的定义
 
-> $n$ 个元 $x_1,x_2,\ldots,x_n$​ 的二次齐次多项式
-> 
-> $$
-> \begin{align*}
-> 
-> ​    f(x_1,x_2,\ldots,x_n) & = \sum_{i=1}^{n}p_{ii}x_i^2+\sum\limits_{1\leqslant i<j\leqslant n}p_{ij}x_ix_j 
-> 
-> \end{align*}
-> $$
-> 
-> 称为数域 $\mathbf{F}$ 上的 $n$ 元二次型.
+>$n$ 个元 $x_1,x_2,\ldots,x_n$​ 的二次齐次多项式
+>
+>$$
+>\begin{align*}
+>f(x_1,x_2,\ldots,x_n) & = \sum_{i=1}^{n}p_{ii}x_i^2+\sum\limits_{1\leqslant i<j\leqslant n}p_{ij}x_ix_j 
+>\end{align*}
+>$$
+>
+>称为数域 $\mathbf{F}$ 上的 $n$ 元二次型. 
 
 本学期研究的主要是实二次型. 若令 $a_{ij}=a_{ji}\enspace(1\leqslant i<j\leqslant n)$​，则二次型可表示为
 $$

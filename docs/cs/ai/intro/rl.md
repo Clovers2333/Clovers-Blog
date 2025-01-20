@@ -217,14 +217,14 @@ $$
 
       策略改进通过选择能最大化值函数的动作来更新策略：
 
-      $$
-      \pi'(a|s) = \begin{aligned}
-            \begin{cases} 
-            1 & \text{if } a = \arg\max_{a \in A} Q_\pi(s, a) \\ 
-            0 & \text{otherwise}
-            \end{cases}
-         \end{aligned}
-      $$
+$$
+\pi'(a|s) = \begin{aligned}
+      \begin{cases} 
+      1 & \text{if } a = \arg\max_{a \in A} Q_\pi(s, a) \\ 
+      0 & \text{otherwise}
+      \end{cases}
+   \end{aligned}
+$$
 
 3. **策略迭代（Policy Iteration）**  
 
@@ -347,9 +347,9 @@ $$
 
 策略梯度的数学公式为：
 
-   $$
-   \nabla_\theta J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta} \left[\sum_{t=0}^\infty \nabla_\theta \log \pi_\theta(a_t|s_t) G_t \right]
-   $$
+$$
+\nabla_\theta J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta} \left[\sum_{t=0}^\infty \nabla_\theta \log \pi_\theta(a_t|s_t) G_t \right]
+$$
 
 其中：  
 
@@ -383,6 +383,7 @@ $$
 #### 时间差分的策略梯度更新
 
 时间差分的策略梯度公式为：
+
 $$
 \nabla_\theta J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta} \left[\nabla_\theta \log \pi_\theta(a_t|s_t) \delta_t \right]
 $$
