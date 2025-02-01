@@ -107,5 +107,5 @@ tmux kill-session -t <name> # kill specific session
 <prefix> _ # splits the current pane horizontally
 ```
 
-
+For more information: https://github.com/gpakosz/.tmux
 

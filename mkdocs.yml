@@ -1,6 +1,5 @@
 site_name: Clovers' Blog
-site_url: https://clovers2333.github.io/Clovers-Blog/
-site_description: test1
+site_url: https://clovers2333.github.io
 repo_url: https://github.com/Clovers2333/Clovers-Blog/
 repo_name: Clovers2333/Clovers-Blog
 edit_uri: tree/master/docs
@@ -46,67 +45,72 @@ theme:
     code: Roboto Mono
 
 markdown_extensions:
-  - toc:
-      permalink: true
-      toc_depth: 4
-  - meta
-  - def_list
-  - attr_list
-  - md_in_html
-  - sane_lists
-  - admonition
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.tilde
-  - pymdownx.critic
-  - pymdownx.details
-  - pymdownx.snippets
-  - pymdownx.magiclink
-  - pymdownx.superfences
-  - pymdownx.inlinehilite
-  - pymdownx.tabbed:
-      alternate_style: true 
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.arithmatex:
-      generic: true
-
-extra_javascript:
-  - javascripts/katex.js
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
-  - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    - toc:
+          permalink: true
+          toc_depth: 4
+    - meta
+    - def_list
+    - attr_list
+    - md_in_html
+    - sane_lists
+    - admonition
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.tilde
+    - pymdownx.critic
+    - pymdownx.details
+    - pymdownx.snippets
+    - pymdownx.magiclink
+    - pymdownx.superfences
+    - pymdownx.inlinehilite
+    - pymdownx.smartsymbols
+    - neoteroi.spantable
+    - pymdownx.emoji:
+          emoji_index: !!python/name:materialx.emoji.twemoji
+          emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.tabbed:
+          alternate_style: true
+    - pymdownx.tasklist:
+          custom_checkbox: true
+    - pymdownx.highlight:
+          anchor_linenums: true
+          linenums: true
+          line_spans: __span
+          pygments_lang_class: true
+    - pymdownx.arithmatex:
+          generic: true
 
 extra_css:
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+    - https://gcore.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css
+    - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
+    - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+    - css/custom.css
+    - css/card.css
+    - css/tasklist.css
+    - css/flink.css
+    - css/more_changelog.css
+    - css/neoteroi-mkdocs.css
+    - css/fold_toc.css
 
-validation:
-  nav:
-    omitted_files: info
-    not_found: warn
-    absolute_links: info
-  links:
-    not_found: ignore
-    absolute_links: ignore
-    unrecognized_links: ignore
+extra_javascript:
+    - css/Javascripts/katex.js
+    - css/Javascripts/katex.min.js
+    - css/Javascripts/toc.js
+    - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+    # - css/Javascripts/mathjax.js
+    # - css/Javascripts/tablesort.js
+    # - css/Javascripts/polyfill.min.js
+    # - https://unpkg.com/katex@0/dist/katex.min.js
+    # - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+    # - https://polyfill.io/v3/polyfill.min.js?features=es6
+    # - https://gcore.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
+    - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
+    - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
 
 plugins:
   - search
-  # - glightbox:
-  #     width: 80%
-  # - git-revision-date-localized:
-  #     type: datetime
-  #     timezone: Asia/Shanghai
-  #     locale: zh
-  #     enable_creation_date: true
-  #     exclude:
-  #       - index.md
-  # - statistics:
-  #     page_check_metadata: comment
+  - statistics
 
 not_in_nav: todo.md
 
