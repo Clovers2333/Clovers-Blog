@@ -2,19 +2,17 @@
 
 Hi！欢迎来到我的博客！我会在这里不定期更新我的学习笔记 / 记录一些有趣的东西！
 
-不定期更新一些学习笔记
+## 最近在做什么？
 
-## 为什么要搭建博客
-主要是自己太鸽了，经常一天下来干啥了也不知道，还是希望能够以博客的形式，以输出倒逼输入一下，记录自己的学习进度同时也方便后续的知识点检索。
+- [ ] 博客的修补和完善
+- [x] 写一些总结
+- [ ] [学均衡的计算](computing_eco/24-25class/equilibrium/index.md)
+- [ ] [学线性规划](math/LinearProgramming/index.md)
+- [ ] 看书！
+    - [ ] 再看一遍《明朝那些事儿》
+    - [ ] 《置身事内》
 
-如果某些笔记能够给某些读者带来一点帮助，那真的不胜荣幸！
+## 最近更新！
 
-## 叠甲
-因为 commit 的时候不会仔细检查自己写了啥，并且本人水平实在有限，所以博客的内容不一定能保证正确。
+- [24-25秋冬学期总结](misc/summary/24-25_first_summary.md)
 
-也欢迎读者指出我博客的错误！（手动比心）
-
-## 关于我
-####  [My GitHub](https://github.com/Clovers2333)
-
-####  [My Gmail](mailto:clovers2333@gmail.com)   and [My ZJU Email](mailto:clovers233@zju.edu.cn)

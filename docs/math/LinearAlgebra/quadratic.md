@@ -31,15 +31,18 @@
 $$
 X = (x_1,\cdots,x_n)^T, \quad Y = (y_1,\cdots,y_n)^T
 $$
+
 即：
 $$
 \alpha = \sum_{i=1}^{n} x_i e_i, \quad \beta = \sum_{j=1}^{n} y_j e_j
 $$
+
 于是：
 $$
 f(\alpha, \beta) = f\left( \sum_{i=1}^{n} x_i e_i, \sum_{j=1}^{n} y_j e_j \right) = \sum_{i=1}^{n} \sum_{j=1}^{n} x_i y_j f(e_i, e_j).
 $$
-令 $ a_{ij} = f(e_i, e_j)(i,j = 1, \cdots, n) $，则：
+
+令 $a_{ij} = f(e_i, e_j)(i,j = 1, \cdots, n)$，则：
 
 $$
 \begin{aligned}
@@ -49,7 +52,7 @@ f(\alpha, \beta) &= \sum_{i=1}^{n} \sum_{j=1}^{n} a_{ij} x_i y_j = \sum_{i=1}^{n
 \end{aligned}
 $$
 
-其中 $ A = (a_{ij})_{n \times n} = (f(e_i, e_j))_{n \times n} $ 称为双线性函数 $ f(\alpha, \beta) $ 在基 $B$​ 下的度量矩阵.
+其中 $A = (a_{ij})_{n \times n} = (f(e_i, e_j))_{n \times n}$ 称为双线性函数 $f(\alpha, \beta)$ 在基 $B$​ 下的度量矩阵.
 
 有了双线性函数以后，我们就很好引出二次型的内容了：如果 $\beta=\alpha$​，会发生什么？
 

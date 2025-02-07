@@ -119,6 +119,7 @@ nav:
     - 首页: index.md
     - 友链: links.md
   - Computer Science:
+    - Index: cs/index.md
     - Introduction:
       - Bash Cheatsheet: cs/basic/bash_cheatsheet.md
       - MIT Missing Semester: cs/basic/MIT-Missing-Semester.md
@@ -181,8 +182,14 @@ nav:
         - Digital Design and Computer Architecture: cs/books/system/ddca.md
   # - 信息安全:
   - Math:
+    - Index: math/index.md
     - 线性代数:
+      - Index: math/LinearAlgebra/index.md
       - 二次型: math/LinearAlgebra/quadratic.md
+    - 线性规划基础:
+      - Index: math/LinearProgramming/index.md
+      - 线性规划几何基础: math/LinearProgramming/basic.md
+      - 线性规划的对偶理论: math/LinearProgramming/dual.md
   - Economy & Finance:
     - 微观经济学: finance/micro.md
     - 公司金融:
@@ -192,9 +199,20 @@ nav:
       - 融资决策和资产定价: finance/corporate/financing.md
       - 股利政策: finance/corporate/dividend.md
   # - 杂项: 
-  - Life:
-    # - 读书笔记:
-    #   - 万历十五年: life/reading/wanli_15.md
-    - 总结:
-      - 23-24寒假总结: life/summary/23-24_winter_summary.md
+  - Computing Economics:
+    - 24-25春夏讨论班:
+      - Index: computing_eco/24-25class/index.md
+      - 微观经济理论进阶: 
+        - Index: computing_eco/24-25class/micro/index.md
+      - 拍卖理论:
+        - Index: computing_eco/24-25class/auction/index.md
+      - 均衡的计算: 
+        - Index: computing_eco/24-25class/equilibrium/index.md
+      - 算法博弈论:
+        - Index: computing_eco/24-25class/game/index.md
+  - Misc:
+    - Index: misc/index.md
+    - Summaries:
+      - 23-24寒假总结: misc/summary/23-24_winter_summary.md
+      - 24-25秋冬学期总结: misc/summary/24-25_first_summary.md
 
